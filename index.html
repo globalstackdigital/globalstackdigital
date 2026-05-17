@@ -893,7 +893,6 @@ footer{background:var(--brand);color:#fff;padding:3.5rem 5% 2rem}
   </div>
 </footer>
 
-<script src="./config.js"></script>
 <script>
 // ── NAV scroll shadow
 window.addEventListener('scroll',()=>{
@@ -922,12 +921,9 @@ const observer=new IntersectionObserver((entries)=>{
 },{threshold:0.12});
 document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 
-// ── Contact Form — submits via GitHub Actions workflow_dispatch
-// GH_TRIGGER_TOKEN is defined in config.js (gitignored — never pushed to GitHub)
-// See config.example.js for the format
-const GH_OWNER    = 'globalstackdigital';
-const GH_REPO     = 'globalstackdigital';
-const GH_WORKFLOW = 'save-lead.yml';
+// ── Contact Form — submits via Web3Forms
+// Access key is safe to be public — it can only submit to this form.
+const W3F_ACCESS_KEY = 'ffdcc896-2b4e-4f20-88bd-b9cc22549412';
 
 async function submitForm(){
   const name    = document.getElementById('fname').value.trim();
@@ -943,68 +939,41 @@ async function submitForm(){
   const btn     = document.getElementById('formSubmitBtn');
   const btnText = document.getElementById('submitBtnText');
   btn.disabled  = true;
-  btnText.textContent = 'Sending…';
+  btnText.textContent = 'Sending...';
 
-  const payload = {
-    ref: 'main',
-    inputs: {
-      id:          String(Date.now()),
-      submitted_at: new Date().toISOString(),
-      name,
-      company:     company  || '',
-      email,
-      phone:       phone    || '',
-      service,
-      budget:      budget   || '',
-      message:     msg
-    }
-  };
+  // Build FormData — Web3Forms reads field names directly
+  const formData = new FormData();
+  formData.append('access_key', W3F_ACCESS_KEY);
+  formData.append('name',       name);
+  formData.append('email',      email);
+  formData.append('subject',    `New Lead: ${name} — ${service}`);
+  formData.append('company',    company || 'N/A');
+  formData.append('phone',      phone   || 'N/A');
+  formData.append('service',    service);
+  formData.append('budget',     budget  || 'Not specified');
+  formData.append('message',    msg);
+  // Honeypot — blocks spam bots
+  formData.append('botcheck',   '');
 
   try{
-    if(GH_TRIGGER_TOKEN === 'PASTE_WORKFLOW_TRIGGER_TOKEN_HERE'){
-      throw new Error('Trigger token not configured yet.');
-    }
+    const res  = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      body:   formData
+    });
+    const data = await res.json();
 
-    const res = await fetch(
-      `https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/actions/workflows/${GH_WORKFLOW}/dispatches`,
-      {
-        method:  'POST',
-        headers: {
-          Authorization:          `Bearer ${GH_TRIGGER_TOKEN}`,
-          Accept:                 'application/vnd.github+json',
-          'X-GitHub-Api-Version': '2022-11-28',
-          'Content-Type':         'application/json'
-        },
-        body: JSON.stringify(payload)
-      }
-    );
-
-    // GitHub returns 204 No Content on success
-    if(res.status === 204){
+    if(res.ok && data.success){
       showSuccess();
     } else {
-      const errText = await res.text();
-      throw new Error(`GitHub responded ${res.status}: ${errText}`);
+      throw new Error(data.message || 'Submission failed');
     }
   } catch(e){
-    // Fallback: store locally so the lead isn't lost
-    saveLead({...payload.inputs, status:'new'});
-    showError('Could not send right now. Your message was saved locally — please also email us at globalstackdigital@gmail.com');
-    console.error('Dispatch error:', e);
+    showError(`Could not send right now. Please email us directly at globalstackdigital@gmail.com`);
+    console.error('Submit error:', e);
   } finally {
     btn.disabled = false;
-    btnText.textContent = 'Send Message →';
+    btnText.textContent = 'Send Message';
   }
-}
-
-function saveLead(lead){
-  try{
-    const existing = JSON.parse(localStorage.getItem('gsd_leads')||'[]');
-    existing.push(lead);
-    localStorage.setItem('gsd_leads', JSON.stringify(existing, null, 2));
-    const ind = document.getElementById('savedIndicator');
-    if(ind){ind.style.display='flex';setTimeout(()=>ind.style.display='none',4000);}
-  }catch(e){console.warn('LocalStorage unavailable');}
 }
 
 function showSuccess(){
@@ -1046,24 +1015,7 @@ function showFieldError(){
   });
 }
 
-// ── Admin helpers (browser console)
-window.viewLeads = function(){
-  const leads = JSON.parse(localStorage.getItem('gsd_leads')||'[]');
-  if(!leads.length){console.log('No local fallback leads.');return;}
-  console.table(leads);
-  return leads;
-};
-window.exportLeads = function(){
-  const leads = JSON.parse(localStorage.getItem('gsd_leads')||'[]');
-  if(!leads.length){alert('No local leads to export.');return;}
-  const blob = new Blob([JSON.stringify(leads,null,2)],{type:'application/json'});
-  const url  = URL.createObjectURL(blob);
-  const a    = document.createElement('a');
-  a.href = url;
-  a.download = 'gsd_leads_' + new Date().toISOString().split('T')[0] + '.json';
-  a.click();
-  URL.revokeObjectURL(url);
-};
+
 </script>
 
 </body>
