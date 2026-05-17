@@ -1,0 +1,112 @@
+name: Save Contact Lead
+
+# Triggered by the contact form via workflow_dispatch API call.
+# The LEADS_TOKEN secret (stored in GitHub Secrets, never in code)
+# is used here to write to data/leads.json.
+
+on:
+  workflow_dispatch:
+    inputs:
+      id:
+        description: 'Unique lead ID'
+        required: true
+      submitted_at:
+        description: 'ISO timestamp'
+        required: true
+      name:
+        description: 'Full name'
+        required: true
+      company:
+        description: 'Company / Brand'
+        required: false
+        default: ''
+      email:
+        description: 'Email address'
+        required: true
+      phone:
+        description: 'Phone / WhatsApp'
+        required: false
+        default: ''
+      service:
+        description: 'Service selected'
+        required: true
+      budget:
+        description: 'Budget range'
+        required: false
+        default: ''
+      message:
+        description: 'Project message'
+        required: true
+
+jobs:
+  save-lead:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write   # needed to commit leads.json
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.LEADS_TOKEN }}
+
+      - name: Append lead to data/leads.json
+        env:
+          LEAD_ID:           ${{ github.event.inputs.id }}
+          LEAD_SUBMITTED_AT: ${{ github.event.inputs.submitted_at }}
+          LEAD_NAME:         ${{ github.event.inputs.name }}
+          LEAD_COMPANY:      ${{ github.event.inputs.company }}
+          LEAD_EMAIL:        ${{ github.event.inputs.email }}
+          LEAD_PHONE:        ${{ github.event.inputs.phone }}
+          LEAD_SERVICE:      ${{ github.event.inputs.service }}
+          LEAD_BUDGET:       ${{ github.event.inputs.budget }}
+          LEAD_MESSAGE:      ${{ github.event.inputs.message }}
+        run: |
+          mkdir -p data
+
+          # Create leads.json if it doesn't exist yet
+          if [ ! -f data/leads.json ]; then
+            echo '{"lastUpdated":"","totalLeads":0,"leads":[]}' > data/leads.json
+          fi
+
+          # Build the new lead as JSON using jq (safe — no shell injection possible)
+          NEW_LEAD=$(jq -n \
+            --arg id           "$LEAD_ID" \
+            --arg submittedAt  "$LEAD_SUBMITTED_AT" \
+            --arg name         "$LEAD_NAME" \
+            --arg company      "$LEAD_COMPANY" \
+            --arg email        "$LEAD_EMAIL" \
+            --arg phone        "$LEAD_PHONE" \
+            --arg service      "$LEAD_SERVICE" \
+            --arg budget       "$LEAD_BUDGET" \
+            --arg message      "$LEAD_MESSAGE" \
+            '{
+              id:          $id,
+              submittedAt: $submittedAt,
+              name:        $name,
+              company:     (if $company == "" then null else $company end),
+              email:       $email,
+              phone:       (if $phone   == "" then null else $phone   end),
+              service:     $service,
+              budget:      (if $budget  == "" then null else $budget  end),
+              message:     $message,
+              status:      "new"
+            }')
+
+          # Append to existing leads array and update metadata
+          NOW=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+          jq \
+            --argjson newLead "$NEW_LEAD" \
+            --arg now "$NOW" \
+            '.leads += [$newLead] | .totalLeads = (.leads | length) | .lastUpdated = $now' \
+            data/leads.json > data/leads.tmp.json
+
+          mv data/leads.tmp.json data/leads.json
+
+      - name: Commit and push leads.json
+        run: |
+          git config user.name  "Global Stack Digital Bot"
+          git config user.email "globalstackdigital@gmail.com"
+          git add data/leads.json
+          git commit -m "📬 New lead: ${{ github.event.inputs.name }} — ${{ github.event.inputs.service }} [${{ github.event.inputs.id }}]"
+          git push

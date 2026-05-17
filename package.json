@@ -1,0 +1,21 @@
+{
+  "name": "globalstackdigital",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "db:studio": "drizzle-kit studio"
+  },
+  "dependencies": {
+    "@netlify/database": "^1.0.0",
+    "@netlify/functions": "^2.8.2",
+    "drizzle-orm": "^1.0.0-beta.22"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "drizzle-kit": "^1.0.0-beta.22",
+    "typescript": "^5.0.0"
+  }
+}
