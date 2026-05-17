@@ -1,0 +1,13 @@
+# Private config — contains GitHub token, never push this
+config.js
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+
+# Node (if applicable)
+node_modules/

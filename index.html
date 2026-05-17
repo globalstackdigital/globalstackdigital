@@ -815,10 +815,10 @@ footer{background:var(--brand);color:#fff;padding:3.5rem 5% 2rem}
         <label for="fbudget">Monthly Budget Range</label>
         <select id="fbudget">
           <option value="">Prefer not to say</option>
-          <option value="Under $500">Under $500 / month</option>
-          <option value="$500-$1500">$500 – $1,500 / month</option>
-          <option value="$1500-$5000">$1,500 – $5,000 / month</option>
-          <option value="$5000+">$5,000+ / month</option>
+          <option value="Under ₹50K">Under ₹50,000 / month</option>
+          <option value="₹50K–₹1L">₹50,000 – ₹1,00,000 / month</option>
+          <option value="₹1L–₹3L">₹1,00,000 – ₹3,00,000 / month</option>
+          <option value="₹3L+">₹3,00,000+ / month</option>
         </select>
       </div>
       <div class="form-group">
@@ -893,6 +893,7 @@ footer{background:var(--brand);color:#fff;padding:3.5rem 5% 2rem}
   </div>
 </footer>
 
+<script src="./config.js"></script>
 <script>
 // ── NAV scroll shadow
 window.addEventListener('scroll',()=>{
@@ -922,12 +923,11 @@ const observer=new IntersectionObserver((entries)=>{
 document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 
 // ── Contact Form — submits via GitHub Actions workflow_dispatch
-// Token has workflow scope only — it can trigger workflows but cannot read/write files.
-// The workflow (save-lead.yml) uses LEADS_TOKEN secret to do the actual file write.
+// GH_TRIGGER_TOKEN is defined in config.js (gitignored — never pushed to GitHub)
+// See config.example.js for the format
 const GH_OWNER    = 'globalstackdigital';
 const GH_REPO     = 'globalstackdigital';
 const GH_WORKFLOW = 'save-lead.yml';
-const GH_TRIGGER_TOKEN = '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';
 
 async function submitForm(){
   const name    = document.getElementById('fname').value.trim();
@@ -943,21 +943,28 @@ async function submitForm(){
   const btn     = document.getElementById('formSubmitBtn');
   const btnText = document.getElementById('submitBtnText');
   btn.disabled  = true;
-  btnText.textContent = 'Sending...';
+  btnText.textContent = 'Sending…';
 
-  const inputs = {
-    id:           String(Date.now()),
-    submitted_at: new Date().toISOString(),
-    name,
-    company:      company || '',
-    email,
-    phone:        phone   || '',
-    service,
-    budget:       budget  || '',
-    message:      msg
+  const payload = {
+    ref: 'main',
+    inputs: {
+      id:          String(Date.now()),
+      submitted_at: new Date().toISOString(),
+      name,
+      company:     company  || '',
+      email,
+      phone:       phone    || '',
+      service,
+      budget:      budget   || '',
+      message:     msg
+    }
   };
 
   try{
+    if(GH_TRIGGER_TOKEN === 'PASTE_WORKFLOW_TRIGGER_TOKEN_HERE'){
+      throw new Error('Trigger token not configured yet.');
+    }
+
     const res = await fetch(
       `https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/actions/workflows/${GH_WORKFLOW}/dispatches`,
       {
@@ -968,28 +975,25 @@ async function submitForm(){
           'X-GitHub-Api-Version': '2022-11-28',
           'Content-Type':         'application/json'
         },
-        body: JSON.stringify({ ref: 'main', inputs })
+        body: JSON.stringify(payload)
       }
     );
 
+    // GitHub returns 204 No Content on success
     if(res.status === 204){
-      // Success — GitHub accepted the workflow dispatch
       showSuccess();
     } else {
-      // Read body for a useful error message
-      let detail = '';
-      try { const j = await res.json(); detail = j.message || JSON.stringify(j); } catch(_){}
-      throw new Error(`GitHub ${res.status}: ${detail}`);
+      const errText = await res.text();
+      throw new Error(`GitHub responded ${res.status}: ${errText}`);
     }
   } catch(e){
-    // Fallback: save locally so the lead is never lost
-    saveLead({...inputs, status:'new'});
-    const errMsg = e.message || 'Unknown error';
-    showError(`Could not send right now (${errMsg}). Your message has been saved locally. Please also email us at globalstackdigital@gmail.com`);
+    // Fallback: store locally so the lead isn't lost
+    saveLead({...payload.inputs, status:'new'});
+    showError('Could not send right now. Your message was saved locally — please also email us at globalstackdigital@gmail.com');
     console.error('Dispatch error:', e);
   } finally {
     btn.disabled = false;
-    btnText.textContent = 'Send Message';
+    btnText.textContent = 'Send Message →';
   }
 }
 
