@@ -3,479 +3,13 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<meta name="description" content="Global Stack Digital is a 24/7 digital marketing, QA testing, and product growth agency. We help startups and businesses grow with SEO, social media, automation testing, and data-driven strategies."/>
-<title>Global Stack Digital | Digital Marketing, QA Testing &amp; Product Growth Agency</title>
+<meta name="description" content="Global Stack Digital is a 24/7 digital marketing, QA intelligence & testing, SEO, and growth agency helping startups scale with data-driven strategies."/>
+<title>Global Stack Digital | Digital Marketing, QA Intelligence &amp; Strategy &amp; Testing and Product Growth Agency</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-:root{
-  --brand:#0a1628;
-  --brand-mid:#152442;
-  --accent:#00d68f;
-  --accent-blue:#2563eb;
-  --accent-orange:#f97316;
-  --light:#f0f4fd;
-  --muted:#64748b;
-  --white:#ffffff;
-  --border:#e1e8f5;
-  --shadow:0 4px 24px rgba(10,22,40,0.08);
-  --shadow-lg:0 16px 48px rgba(10,22,40,0.14);
-  --font-display:'Bricolage Grotesque',sans-serif;
-  --font-body:'Instrument Sans',sans-serif;
-}
-html{scroll-behavior:smooth}
-body{font-family:var(--font-body);background:#fff;color:var(--brand);overflow-x:hidden;-webkit-font-smoothing:antialiased}
-
-/* ── NAV ── */
-nav{
-  position:fixed;top:0;left:0;right:0;z-index:200;
-  background:rgba(255,255,255,0.95);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
-  border-bottom:1px solid var(--border);
-  display:flex;align-items:center;justify-content:space-between;
-  padding:0 5%;height:70px;
-  transition:box-shadow 0.3s;
-}
-nav.scrolled{box-shadow:var(--shadow)}
-
-/* SVG Logo */
-.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
-.logo-mark{flex-shrink:0}
-.logo-wordmark{
-  font-family:var(--font-display);font-weight:800;font-size:1.05rem;
-  color:var(--brand);letter-spacing:-0.4px;line-height:1.1;
-}
-.logo-wordmark em{color:var(--accent-blue);font-style:normal}
-
-.nav-links{display:flex;gap:0.25rem;list-style:none}
-.nav-links a{
-  font-size:0.875rem;font-weight:500;color:var(--muted);text-decoration:none;
-  padding:7px 14px;border-radius:8px;transition:all 0.2s;
-}
-.nav-links a:hover{color:var(--brand);background:#f0f4fd}
-.nav-right{display:flex;align-items:center;gap:12px}
-.nav-cta{
-  background:var(--brand);color:#fff;padding:9px 22px;border-radius:50px;
-  font-size:0.85rem;font-weight:600;text-decoration:none;letter-spacing:0.1px;
-  transition:all 0.2s;box-shadow:0 2px 12px rgba(10,22,40,0.2);
-}
-.nav-cta:hover{background:var(--brand-mid);transform:translateY(-1px);box-shadow:0 4px 18px rgba(10,22,40,0.25)}
-
-/* Hamburger */
-.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;border:none;background:none;border-radius:8px}
-.hamburger span{display:block;width:22px;height:2px;background:var(--brand);border-radius:2px;transition:all 0.3s}
-.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
-.hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
-.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-
-/* Mobile drawer */
-.mobile-menu{
-  display:none;position:fixed;top:70px;left:0;right:0;bottom:0;
-  background:#fff;z-index:190;
-  flex-direction:column;padding:2rem 5%;gap:0.5rem;
-  transform:translateY(-8px);opacity:0;
-  transition:all 0.25s;pointer-events:none;
-}
-.mobile-menu.open{display:flex;transform:translateY(0);opacity:1;pointer-events:auto}
-.mobile-menu a{
-  font-family:var(--font-display);font-weight:600;font-size:1.3rem;
-  color:var(--brand);text-decoration:none;padding:14px 0;
-  border-bottom:1px solid var(--border);transition:color 0.2s;
-}
-.mobile-menu a:hover{color:var(--accent-blue)}
-.mobile-menu .mob-cta{
-  margin-top:1rem;background:var(--brand);color:#fff;text-align:center;
-  padding:16px;border-radius:50px;border:none;font-size:1rem;font-weight:600;
-}
-
-/* ── HERO ── */
-.hero{
-  min-height:100vh;display:grid;grid-template-columns:1fr 1fr;
-  align-items:center;gap:4rem;
-  padding:100px 5% 80px;
-  background:linear-gradient(160deg,#f8faff 0%,#ffffff 55%,#f0fdf7 100%);
-  position:relative;overflow:hidden;
-}
-.hero-blob{position:absolute;border-radius:50%;filter:blur(90px);pointer-events:none;z-index:0}
-.hb1{width:560px;height:560px;background:rgba(37,99,235,0.06);top:-120px;right:-60px}
-.hb2{width:420px;height:420px;background:rgba(0,214,143,0.08);bottom:-80px;left:5%}
-.hb3{width:300px;height:300px;background:rgba(249,115,22,0.05);top:40%;right:30%}
-
-.hero-left{position:relative;z-index:2}
-.hero-badge{
-  display:inline-flex;align-items:center;gap:8px;
-  background:linear-gradient(135deg,#e8fff5,#e0efff);
-  border:1px solid #b8f0df;color:#0a6648;
-  font-size:0.77rem;font-weight:600;letter-spacing:0.4px;
-  padding:7px 16px;border-radius:50px;margin-bottom:1.75rem;
-}
-.badge-dot{width:7px;height:7px;background:#00d68f;border-radius:50%;animation:pulse 2s infinite;display:inline-block}
-@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(0,214,143,0.5)}50%{box-shadow:0 0 0 6px rgba(0,214,143,0)}}
-
-.hero h1{
-  font-family:var(--font-display);font-weight:800;
-  font-size:clamp(2.2rem,4.5vw,3.8rem);line-height:1.1;
-  color:var(--brand);letter-spacing:-1.5px;margin-bottom:1.5rem;
-}
-.hero h1 .hl{
-  color:var(--accent-blue);
-  background:linear-gradient(135deg,var(--accent-blue),#7c3aed);
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-}
-.hero-desc{font-size:1.05rem;color:var(--muted);line-height:1.75;max-width:480px;margin-bottom:2.5rem;font-weight:400}
-.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:3rem}
-.btn-primary{
-  background:var(--brand);color:#fff;padding:14px 30px;
-  border-radius:50px;font-size:0.92rem;font-weight:600;
-  text-decoration:none;transition:all 0.2s;
-  box-shadow:0 4px 20px rgba(10,22,40,0.22);display:inline-block;
-  letter-spacing:0.1px;
-}
-.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(10,22,40,0.28)}
-.btn-outline{
-  background:transparent;color:var(--brand);padding:14px 28px;
-  border-radius:50px;font-size:0.92rem;font-weight:600;
-  text-decoration:none;border:1.5px solid rgba(10,22,40,0.2);
-  transition:all 0.2s;display:inline-flex;align-items:center;gap:8px;
-}
-.btn-outline:hover{border-color:var(--brand);background:var(--brand);color:#fff}
-.btn-outline svg{transition:transform 0.2s}
-.btn-outline:hover svg{transform:translateX(3px)}
-
-.hero-stats{display:flex;gap:2.5rem;flex-wrap:wrap}
-.stat{display:flex;flex-direction:column;gap:3px}
-.stat-num{font-family:var(--font-display);font-weight:800;font-size:1.75rem;color:var(--brand);letter-spacing:-1px}
-.stat-label{font-size:0.78rem;color:var(--muted);font-weight:500;letter-spacing:0.2px}
-.stat+.stat{padding-left:2.5rem;border-left:1px solid var(--border)}
-
-/* Hero right — visual card stack */
-.hero-right{position:relative;z-index:2}
-.hero-visual{
-  background:linear-gradient(145deg,var(--brand) 0%,#1e3a6e 100%);
-  border-radius:28px;padding:2.5rem;color:#fff;
-  box-shadow:var(--shadow-lg);position:relative;overflow:hidden;
-}
-.hero-visual::before{
-  content:'';position:absolute;top:-60px;right:-60px;
-  width:220px;height:220px;border-radius:50%;
-  background:rgba(0,214,143,0.1);
-}
-.hero-visual::after{
-  content:'';position:absolute;bottom:-40px;left:-40px;
-  width:160px;height:160px;border-radius:50%;
-  background:rgba(37,99,235,0.12);
-}
-.hv-tag{
-  display:inline-block;background:rgba(0,214,143,0.18);color:var(--accent);
-  font-size:0.72rem;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;
-  padding:5px 12px;border-radius:50px;margin-bottom:1.5rem;
-}
-.hv-title{font-family:var(--font-display);font-weight:700;font-size:1.45rem;line-height:1.25;margin-bottom:2rem;position:relative;z-index:1}
-.hv-title span{color:var(--accent)}
-.hv-services{display:flex;flex-direction:column;gap:12px;position:relative;z-index:1}
-.hv-service{
-  display:flex;align-items:center;gap:14px;
-  background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);
-  border-radius:14px;padding:14px 16px;transition:background 0.2s;
-}
-.hv-service:hover{background:rgba(255,255,255,0.1)}
-.hv-svc-icon{
-  width:38px;height:38px;border-radius:10px;
-  display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;
-}
-.hv-svc-icon.blue{background:rgba(37,99,235,0.25)}
-.hv-svc-icon.green{background:rgba(0,214,143,0.2)}
-.hv-svc-icon.orange{background:rgba(249,115,22,0.2)}
-.hv-svc-text{flex:1}
-.hv-svc-name{font-family:var(--font-display);font-weight:600;font-size:0.9rem;color:#fff}
-.hv-svc-sub{font-size:0.75rem;color:rgba(255,255,255,0.5);margin-top:2px}
-.hv-svc-pill{
-  font-size:0.65rem;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;
-  padding:3px 9px;border-radius:50px;
-}
-.hv-svc-pill.available{background:rgba(0,214,143,0.2);color:var(--accent)}
-
-/* Float cards */
-.hero-float{
-  position:absolute;background:#fff;border-radius:16px;
-  box-shadow:0 12px 32px rgba(10,22,40,0.12);border:1px solid var(--border);
-  padding:12px 16px;display:flex;align-items:center;gap:10px;
-  font-size:0.8rem;font-weight:600;color:var(--brand);
-}
-.hf1{bottom:-20px;left:-30px;animation:floatA 4s ease-in-out infinite}
-.hf2{top:-18px;right:-20px;animation:floatB 4.5s ease-in-out infinite}
-@keyframes floatA{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
-@keyframes floatB{0%,100%{transform:translateY(-5px)}50%{transform:translateY(5px)}}
-.hf-dot{width:8px;height:8px;border-radius:50%}
-.hf-dot.green{background:#00d68f}
-.hf-dot.blue{background:var(--accent-blue)}
-
-/* ── SECTION BASE ── */
-section{padding:96px 5%}
-.section-tag{
-  display:inline-flex;align-items:center;gap:6px;
-  background:rgba(37,99,235,0.07);color:var(--accent-blue);
-  font-size:0.72rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
-  padding:5px 14px;border-radius:50px;margin-bottom:1.1rem;
-}
-.section-title{
-  font-family:var(--font-display);font-weight:800;
-  font-size:clamp(1.75rem,3.2vw,2.5rem);color:var(--brand);
-  letter-spacing:-0.8px;line-height:1.15;margin-bottom:0.9rem;
-}
-.section-sub{color:var(--muted);font-size:1rem;line-height:1.7;max-width:520px}
-
-/* ── SERVICES ── */
-.services{background:#f8faff}
-.services-header{text-align:center;margin-bottom:4rem}
-.services-header .section-sub{margin:0 auto}
-.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
-
-.svc-card{
-  background:#fff;border:1px solid var(--border);border-radius:24px;
-  padding:2.25rem;position:relative;overflow:hidden;
-  transition:all 0.3s cubic-bezier(0.25,0.46,0.45,0.94);
-}
-.svc-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);border-color:transparent}
-.svc-card::after{
-  content:'';position:absolute;inset:0;border-radius:24px;opacity:0;
-  background:linear-gradient(145deg,rgba(37,99,235,0.03),rgba(0,214,143,0.03));
-  transition:opacity 0.3s;
-}
-.svc-card:hover::after{opacity:1}
-.svc-top-bar{position:absolute;top:0;left:0;right:0;height:3px;border-radius:24px 24px 0 0}
-.marketing .svc-top-bar{background:linear-gradient(90deg,#2563eb,#7c3aed)}
-.qa .svc-top-bar{background:linear-gradient(90deg,#00d68f,#0891b2)}
-.growth .svc-top-bar{background:linear-gradient(90deg,#f97316,#eab308)}
-
-.svc-icon-wrap{
-  width:54px;height:54px;border-radius:16px;
-  display:flex;align-items:center;justify-content:center;
-  font-size:1.5rem;margin-bottom:1.5rem;
-}
-.marketing .svc-icon-wrap{background:linear-gradient(135deg,#eff6ff,#dbeafe)}
-.qa .svc-icon-wrap{background:linear-gradient(135deg,#ecfdf5,#d1fae5)}
-.growth .svc-icon-wrap{background:linear-gradient(135deg,#fff7ed,#fed7aa)}
-
-.svc-card h3{font-family:var(--font-display);font-weight:700;font-size:1.2rem;color:var(--brand);margin-bottom:0.75rem}
-.svc-card p{color:var(--muted);font-size:0.9rem;line-height:1.7;margin-bottom:1.5rem}
-.svc-tags{display:flex;flex-wrap:wrap;gap:7px}
-.svc-tag{
-  font-size:0.71rem;font-weight:600;padding:4px 11px;border-radius:50px;
-  letter-spacing:0.2px;
-}
-.svc-tag.blue{background:#eff6ff;color:#1d4ed8;border:1px solid #bfdbfe}
-.svc-tag.green{background:#ecfdf5;color:#065f46;border:1px solid #a7f3d0}
-.svc-tag.orange{background:#fff7ed;color:#9a3412;border:1px solid #fdba74}
-
-/* ── WHY US ── */
-.why-section{background:#fff}
-.why-grid{display:grid;grid-template-columns:5fr 6fr;gap:5rem;align-items:center}
-.why-visual-card{
-  background:linear-gradient(145deg,var(--brand) 0%,#1a3a6e 100%);
-  border-radius:28px;padding:2.75rem;color:#fff;
-  position:relative;overflow:hidden;box-shadow:var(--shadow-lg);
-}
-.why-visual-card::before{
-  content:'GSD';
-  position:absolute;bottom:-20px;right:-10px;
-  font-family:var(--font-display);font-weight:800;font-size:7rem;
-  color:rgba(255,255,255,0.04);letter-spacing:-4px;pointer-events:none;
-}
-.wv-tag{
-  display:inline-block;background:rgba(0,214,143,0.15);color:var(--accent);
-  font-size:0.72rem;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;
-  padding:5px 12px;border-radius:50px;margin-bottom:1.5rem;
-}
-.wv-title{font-family:var(--font-display);font-weight:800;font-size:1.5rem;line-height:1.25;margin-bottom:2rem}
-.wv-title span{color:var(--accent)}
-.metrics-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:2rem}
-.metric-card{
-  background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);
-  border-radius:16px;padding:1.25rem;text-align:center;
-}
-.metric-num{font-family:var(--font-display);font-weight:800;font-size:2rem;color:var(--accent);letter-spacing:-1px}
-.metric-label{font-size:0.72rem;color:rgba(255,255,255,0.5);margin-top:4px;text-transform:uppercase;letter-spacing:0.5px}
-.metric-card.full{grid-column:span 2;display:flex;align-items:center;justify-content:center;gap:1rem}
-.metric-card.full .metric-num{font-size:1.5rem}
-
-.why-points{display:flex;flex-direction:column;gap:0}
-.why-point{
-  display:flex;gap:1.25rem;align-items:flex-start;
-  padding:1.5rem 0;border-bottom:1px solid var(--border);
-}
-.why-point:last-child{border-bottom:none}
-.wp-icon{
-  width:44px;height:44px;border-radius:14px;
-  background:linear-gradient(135deg,#eff6ff,#dbeafe);
-  display:flex;align-items:center;justify-content:center;
-  flex-shrink:0;font-size:1.2rem;
-}
-.wp-body{flex:1}
-.wp-title{font-family:var(--font-display);font-weight:700;font-size:1.02rem;color:var(--brand);margin-bottom:5px}
-.wp-desc{color:var(--muted);font-size:0.875rem;line-height:1.6}
-
-/* ── PROCESS ── */
-.process-section{background:#f8faff}
-.process-header{text-align:center;margin-bottom:4rem}
-.process-header .section-sub{margin:0 auto}
-.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;position:relative}
-.steps::before{
-  content:'';position:absolute;top:38px;left:calc(12.5% + 22px);right:calc(12.5% + 22px);
-  height:1px;background:linear-gradient(90deg,var(--accent-blue),var(--accent));z-index:0;
-}
-.step-card{
-  background:#fff;border:1px solid var(--border);border-radius:22px;
-  padding:2rem 1.5rem;text-align:center;position:relative;z-index:1;
-  transition:all 0.25s;
-}
-.step-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg);border-color:transparent}
-.step-num{
-  width:48px;height:48px;border-radius:50%;
-  background:linear-gradient(135deg,var(--brand),#1e3a6e);
-  color:#fff;font-family:var(--font-display);font-weight:800;font-size:1.1rem;
-  display:flex;align-items:center;justify-content:center;margin:0 auto 1.25rem;
-  box-shadow:0 4px 12px rgba(10,22,40,0.2);position:relative;z-index:2;
-}
-.step-card h4{font-family:var(--font-display);font-weight:700;font-size:1rem;color:var(--brand);margin-bottom:0.6rem}
-.step-card p{color:var(--muted);font-size:0.85rem;line-height:1.6}
-
-/* ── CONTACT ── */
-.contact-section{background:#fff}
-.contact-wrap{display:grid;grid-template-columns:5fr 7fr;gap:5rem;align-items:start}
-.contact-info .section-sub{margin-bottom:2.5rem}
-.contact-detail{display:flex;align-items:flex-start;gap:14px;margin-bottom:1.25rem}
-.cd-icon{
-  width:44px;height:44px;background:linear-gradient(135deg,#eff6ff,#dbeafe);
-  border-radius:13px;display:flex;align-items:center;justify-content:center;
-  font-size:1.1rem;flex-shrink:0;
-}
-.cd-text{font-size:0.92rem;color:var(--brand);font-weight:600;margin-bottom:2px}
-.cd-sub{font-size:0.78rem;color:var(--muted)}
-
-.contact-form-card{
-  background:#fff;border:1px solid var(--border);border-radius:28px;
-  padding:2.75rem;box-shadow:var(--shadow);
-}
-.form-title{font-family:var(--font-display);font-weight:700;font-size:1.3rem;color:var(--brand);margin-bottom:0.4rem}
-.form-subtitle{font-size:0.85rem;color:var(--muted);margin-bottom:2rem}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
-.form-group{margin-bottom:1.1rem}
-.form-group label{
-  display:block;font-size:0.8rem;font-weight:600;color:var(--brand);
-  margin-bottom:7px;letter-spacing:0.2px;
-}
-.form-group input,.form-group textarea,.form-group select{
-  width:100%;background:#f8faff;border:1.5px solid var(--border);border-radius:12px;
-  padding:11px 15px;font-size:0.9rem;color:var(--brand);font-family:var(--font-body);
-  outline:none;transition:all 0.2s;appearance:none;
-}
-.form-group input:focus,.form-group textarea:focus,.form-group select:focus{
-  border-color:var(--accent-blue);background:#fff;
-  box-shadow:0 0 0 3px rgba(37,99,235,0.08);
-}
-.form-group input::placeholder,.form-group textarea::placeholder{color:#aab2c4}
-.form-group textarea{height:120px;resize:none}
-.form-group select{cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2364748b' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:38px}
-.phone-wrap{display:flex;gap:1rem}
-.country-code{width:90px;flex-shrink:0}
-.form-submit{
-  width:100%;background:linear-gradient(135deg,var(--brand),#1e3a6e);color:#fff;
-  border:none;padding:15px;border-radius:50px;font-size:0.95rem;font-weight:600;
-  cursor:pointer;font-family:var(--font-body);letter-spacing:0.2px;
-  transition:all 0.2s;box-shadow:0 4px 16px rgba(10,22,40,0.2);
-  display:flex;align-items:center;justify-content:center;gap:8px;
-}
-.form-submit:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(10,22,40,0.28)}
-.form-submit:disabled{opacity:0.65;cursor:not-allowed;transform:none}
-.form-success{
-  display:none;text-align:center;padding:1.5rem;
-  background:linear-gradient(135deg,#ecfdf5,#d1fae5);
-  border-radius:16px;color:#065f46;font-weight:600;margin-top:1rem;
-  border:1px solid #a7f3d0;
-}
-.form-success span{display:block;font-size:0.85rem;font-weight:400;color:#047857;margin-top:4px}
-.form-note{text-align:center;font-size:0.75rem;color:var(--muted);margin-top:12px}
-.form-note a{color:var(--accent-blue);text-decoration:none}
-/* Saved indicator */
-.saved-indicator{
-  display:none;align-items:center;gap:6px;font-size:0.75rem;color:#065f46;
-  background:#ecfdf5;padding:4px 10px;border-radius:50px;border:1px solid #a7f3d0;
-}
-
-/* ── FOOTER ── */
-footer{background:var(--brand);color:#fff;padding:3.5rem 5% 2rem}
-.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;padding-bottom:2.5rem;border-bottom:1px solid rgba(255,255,255,0.08)}
-.footer-brand{}
-.footer-logo-wrap{display:flex;align-items:center;gap:10px;margin-bottom:0.9rem}
-.footer-logo-text{font-family:var(--font-display);font-weight:800;font-size:1.1rem;color:#fff}
-.footer-logo-text em{color:var(--accent);font-style:normal}
-.footer-brand p{font-size:0.85rem;color:rgba(255,255,255,0.45);line-height:1.65;max-width:260px;margin-bottom:1.5rem}
-.footer-socials{display:flex;gap:10px}
-.social-btn{
-  width:36px;height:36px;border-radius:10px;
-  background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);
-  display:flex;align-items:center;justify-content:center;cursor:pointer;
-  text-decoration:none;transition:all 0.2s;color:rgba(255,255,255,0.6);font-size:0.85rem;
-}
-.social-btn:hover{background:rgba(255,255,255,0.14);color:#fff}
-.footer-col h4{font-family:var(--font-display);font-size:0.78rem;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:1.2rem}
-.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:0.7rem}
-.footer-col a{font-size:0.875rem;color:rgba(255,255,255,0.55);text-decoration:none;transition:color 0.2s}
-.footer-col a:hover{color:#fff}
-.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;flex-wrap:wrap;gap:0.75rem}
-.footer-copy{font-size:0.8rem;color:rgba(255,255,255,0.3)}
-.footer-badge{
-  display:flex;align-items:center;gap:6px;
-  background:rgba(0,214,143,0.1);border:1px solid rgba(0,214,143,0.2);
-  color:var(--accent);font-size:0.7rem;font-weight:700;letter-spacing:1px;
-  padding:5px 12px;border-radius:50px;text-transform:uppercase;
-}
-
-/* ── RESPONSIVE ── */
-@media(max-width:1024px){
-  .hero{grid-template-columns:1fr;gap:3rem;padding-top:110px}
-  .hero-right{max-width:520px}
-  .services-grid{grid-template-columns:1fr 1fr}
-  .why-grid{grid-template-columns:1fr;gap:3rem}
-  .steps{grid-template-columns:repeat(2,1fr)}
-  .steps::before{display:none}
-  .contact-wrap{grid-template-columns:1fr;gap:3rem}
-  .footer-grid{grid-template-columns:1fr 1fr}
-}
-@media(max-width:768px){
-  nav{padding:0 5%}
-  .nav-links,.nav-cta{display:none}
-  .hamburger{display:flex}
-  .hero{padding:90px 5% 60px}
-  .hero h1{font-size:2rem}
-  .hero-stats{gap:1.5rem}
-  .stat+.stat{padding-left:1.5rem}
-  section{padding:64px 5%}
-  .services-grid{grid-template-columns:1fr}
-  .steps{grid-template-columns:1fr 1fr}
-  .form-row{grid-template-columns:1fr}
-  .footer-grid{grid-template-columns:1fr}
-  .footer-bottom{flex-direction:column;text-align:center}
-  .hero-float{display:none}
-}
-@media(max-width:480px){
-  .steps{grid-template-columns:1fr}
-  .metrics-grid{grid-template-columns:1fr 1fr}
-  .metric-card.full{grid-column:auto}
-  .hero h1{font-size:1.8rem}
-}
-
-/* Scroll reveal */
-.reveal{opacity:0;transform:translateY(24px);transition:opacity 0.6s,transform 0.6s}
-.reveal.visible{opacity:1;transform:translateY(0)}
-.reveal-delay-1{transition-delay:0.1s}
-.reveal-delay-2{transition-delay:0.2s}
-.reveal-delay-3{transition-delay:0.3s}
-.reveal-delay-4{transition-delay:0.4s}
-</style>
+<link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
 
@@ -530,7 +64,7 @@ footer{background:var(--brand);color:#fff;padding:3.5rem 5% 2rem}
       Available 24/7 · Global Clients · Real Results
     </div>
     <h1>Your 24/7 <span class="hl">Digital Growth</span> Partner.</h1>
-    <p class="hero-desc">We help growing businesses scale faster with full-stack digital marketing, software quality assurance, and product growth strategies. One agency, everything you need, always available.</p>
+    <p class="hero-desc">We help businesses grow with performance-driven marketing, intelligent quality assurance, and scalable growth strategies designed to improve visibility, generate qualified leads, optimize digital experiences, and drive measurable business results. One agency, everything you need, always available.</p>
     <div class="hero-btns">
       <a href="#contact" class="btn-primary">Start Growing Today</a>
       <a href="#services" class="btn-outline">
@@ -562,16 +96,16 @@ footer{background:var(--brand);color:#fff;padding:3.5rem 5% 2rem}
         <div class="hv-service">
           <div class="hv-svc-icon blue">📢</div>
           <div class="hv-svc-text">
-            <div class="hv-svc-name">Digital Marketing</div>
-            <div class="hv-svc-sub">SEO · Paid Ads · Social · Content</div>
+            <div class="hv-svc-name">Digital &amp; Performance Marketing</div>
+            <div class="hv-svc-sub">SEO · Paid Growth · Lead Generation</div>
           </div>
           <span class="hv-svc-pill available">Active</span>
         </div>
         <div class="hv-service">
           <div class="hv-svc-icon green">✅</div>
           <div class="hv-svc-text">
-            <div class="hv-svc-name">Quality Assurance</div>
-            <div class="hv-svc-sub">Manual · Automation · Performance</div>
+            <div class="hv-svc-name">QA Intelligence &amp; Strategy</div>
+            <div class="hv-svc-sub">QA Intelligence · Product Testing · UX Optimization</div>
           </div>
           <span class="hv-svc-pill available">Active</span>
         </div>
@@ -579,7 +113,7 @@ footer{background:var(--brand);color:#fff;padding:3.5rem 5% 2rem}
           <div class="hv-svc-icon orange">🚀</div>
           <div class="hv-svc-text">
             <div class="hv-svc-name">Product Growth</div>
-            <div class="hv-svc-sub">Analytics · A/B Testing · Funnels</div>
+            <div class="hv-svc-sub">Growth Strategy · Funnel Optimization · User Retention</div>
           </div>
           <span class="hv-svc-pill available">Active</span>
         </div>
@@ -607,40 +141,43 @@ footer{background:var(--brand);color:#fff;padding:3.5rem 5% 2rem}
     <div class="svc-card marketing reveal reveal-delay-1">
       <div class="svc-top-bar"></div>
       <div class="svc-icon-wrap">📢</div>
-      <h3>Digital Marketing</h3>
-      <p>Get found, get clicks, get customers. We run full-funnel campaigns that drive real traffic and qualified leads across search engines, social platforms, and beyond.</p>
+      <h3>Digital &amp; Performance Marketing</h3>
+      <p>Built to improve reach, engagement, and customer acquisition through data-driven marketing strategies focused on scalable and measurable growth.</p>
       <div class="svc-tags">
-        <span class="svc-tag blue">SEO</span>
-        <span class="svc-tag blue">Social Media</span>
-        <span class="svc-tag blue">Paid Ads</span>
-        <span class="svc-tag blue">Email Campaigns</span>
+        <span class="svc-tag blue">Performance Marketing</span>
+        <span class="svc-tag blue">SEO Strategy</span>
+        <span class="svc-tag blue">Lead Generation</span>
         <span class="svc-tag blue">Content Marketing</span>
+        <span class="svc-tag blue">Paid Campaigns</span>
+        <span class="svc-tag blue">Conversion Growth</span>
       </div>
     </div>
     <div class="svc-card qa reveal reveal-delay-2">
       <div class="svc-top-bar"></div>
       <div class="svc-icon-wrap">✅</div>
-      <h3>Quality Assurance</h3>
-      <p>Ship with confidence. We catch every bug before your users do, across manual, automation, and performance testing so your product only goes live when it is truly ready.</p>
+      <h3>QA Intelligence &amp; Strategy</h3>
+      <p>Strong products are built on quality, consistency, and user experience. Intelligent QA strategies help businesses improve reliability, performance, and customer trust.</p>
       <div class="svc-tags">
         <span class="svc-tag green">Manual Testing</span>
-        <span class="svc-tag green">Automation</span>
-        <span class="svc-tag green">App Testing</span>
-        <span class="svc-tag green">Performance QA</span>
-        <span class="svc-tag green">Bug Reporting</span>
+        <span class="svc-tag green">UX Testing</span>
+        <span class="svc-tag green">Website Quality Assurance</span>
+        <span class="svc-tag green">Performance Analysis</span>
+        <span class="svc-tag green">QA Optimization</span>
+        <span class="svc-tag green">Product Testing</span>
       </div>
     </div>
     <div class="svc-card growth reveal reveal-delay-3">
       <div class="svc-top-bar"></div>
       <div class="svc-icon-wrap">🚀</div>
       <h3>Product Growth</h3>
-      <p>We turn your product data into strategies that drive retention, reduce churn, and grow revenue month over month. No guesswork, just systematic, measurable growth.</p>
+      <p>Growth is not just about acquiring users. It is about building better experiences that keep customers engaged, connected, and returning consistently.</p>
       <div class="svc-tags">
-        <span class="svc-tag orange">Growth Strategy</span>
-        <span class="svc-tag orange">Analytics</span>
-        <span class="svc-tag orange">User Research</span>
-        <span class="svc-tag orange">A/B Testing</span>
-        <span class="svc-tag orange">Funnel Optimization</span>
+        <span class="svc-tag orange">User Engagement</span>
+        <span class="svc-tag orange">Retention Strategy</span>
+        <span class="svc-tag orange">Product Optimization</span>
+        <span class="svc-tag orange">Growth Analysis</span>
+        <span class="svc-tag orange">Funnel Strategy</span>
+        <span class="svc-tag orange">Customer Experience</span>
       </div>
     </div>
   </div>
@@ -651,8 +188,8 @@ footer{background:var(--brand);color:#fff;padding:3.5rem 5% 2rem}
   <div class="why-grid">
     <div class="why-visual-card reveal">
       <div class="wv-tag">Our Edge</div>
-      <div class="wv-title">Built for brands that want to grow <span>fast.</span></div>
-      <p style="font-size:0.875rem;color:rgba(255,255,255,0.55);line-height:1.65">We are not just another agency. We are your 24/7 digital growth partner, obsessed with your results.</p>
+      <div class="wv-title">Built for Brands That Want <span>Sustainable Growth</span></div>
+      <p style="font-size:0.875rem;color:rgba(255,255,255,0.55);line-height:1.65">We combine digital marketing, QA intelligence, and product growth strategies to help businesses improve visibility, optimize digital experiences, generate qualified leads, and scale with confidence.</p>
       <div class="metrics-grid">
         <div class="metric-card">
           <div class="metric-num">24/7</div>
@@ -674,34 +211,34 @@ footer{background:var(--brand);color:#fff;padding:3.5rem 5% 2rem}
       <div style="margin-bottom:1.75rem">
         <div class="section-tag">Why Global Stack Digital</div>
         <h2 class="section-title">Why Businesses Choose Global Stack Digital</h2>
-        <p class="section-sub">We do not just send reports and call it done. We get involved, stay accountable, and treat your business goals like our own.</p>
+        <p class="section-sub">We work as a growth-focused digital partner, helping businesses improve marketing performance, product quality, and scalable growth through strategic execution and measurable results.</p>
       </div>
       <div class="why-point">
         <div class="wp-icon">⚡</div>
         <div class="wp-body">
-          <div class="wp-title">Speed and Agility</div>
-          <div class="wp-desc">We move fast. No bureaucracy, no long approval chains. Just fast, quality delivery that keeps you ahead of the competition.</div>
+          <div class="wp-title">Strategic Execution</div>
+          <div class="wp-desc">We focus on practical strategies backed by data, performance insights, and business goals to help brands grow efficiently and sustainably.</div>
         </div>
       </div>
       <div class="why-point">
         <div class="wp-icon">🎯</div>
         <div class="wp-body">
-          <div class="wp-title">Results, Not Vanity Metrics</div>
-          <div class="wp-desc">Every campaign and test is tied to a real business goal. We track leads, revenue, retention, and ROI. Not just clicks and impressions.</div>
+          <div class="wp-title">Results That Matter</div>
+          <div class="wp-desc">Our work is focused on real outcomes including lead generation, customer engagement, conversion growth, retention, and overall business performance.</div>
         </div>
       </div>
       <div class="why-point">
         <div class="wp-icon">🤝</div>
         <div class="wp-body">
-          <div class="wp-title">True Partnership</div>
-          <div class="wp-desc">We embed ourselves in your team and stay available when you need us. Your growth is our growth and we are in it for the long run.</div>
+          <div class="wp-title">Intelligent QA &amp; Product Focus</div>
+          <div class="wp-desc">We help businesses deliver reliable digital experiences through QA intelligence, testing strategies, and performance-focused optimization that improves user satisfaction.</div>
         </div>
       </div>
       <div class="why-point">
         <div class="wp-icon">🌍</div>
         <div class="wp-body">
-          <div class="wp-title">One Agency, Zero Gaps</div>
-          <div class="wp-desc">Marketing, QA, and product growth under one roof means no communication gaps, no misaligned vendors, and no wasted budget.</div>
+          <div class="wp-title">One Partner, Multiple Growth Solutions</div>
+          <div class="wp-desc">From digital marketing and lead generation to QA strategy and product growth, we provide connected solutions that reduce gaps, improve collaboration, and support long-term growth.</div>
         </div>
       </div>
     </div>
@@ -745,7 +282,7 @@ footer{background:var(--brand);color:#fff;padding:3.5rem 5% 2rem}
     <div class="contact-info reveal">
       <div class="section-tag">Get In Touch</div>
       <h2 class="section-title">Ready to Grow Your Business?</h2>
-      <p class="section-sub" style="margin-bottom:2.5rem">Whether you are a startup finding your footing or a growing brand ready to scale, we would love to hear about your goals. Fill in the form and we will get back to you within 24 hours.</p>
+      <p class="section-sub" style="margin-bottom:2.5rem">Every business has different goals, challenges, and growth opportunities. Share what you are working on and let's explore the right strategy together.</p>
       <div class="contact-detail">
         <div class="cd-icon">📧</div>
         <div>
@@ -772,8 +309,8 @@ footer{background:var(--brand);color:#fff;padding:3.5rem 5% 2rem}
     <div class="contact-form-card reveal reveal-delay-1">
       <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:1.5rem">
         <div>
-          <div class="form-title">Send Us a Message</div>
-          <div class="form-subtitle">Tell us about your project and we will put together the right plan for you. No commitment, no spam.</div>
+          <div class="form-title">Let's Connect &amp; Discuss Your Growth Goals</div>
+          <div class="form-subtitle">Tell us about your goals, current challenges, services you are interested in, or anything that will help us understand your business better.</div>
         </div>
         <div class="saved-indicator" id="savedIndicator">
           ✅ Saved locally
@@ -801,7 +338,7 @@ footer{background:var(--brand);color:#fff;padding:3.5rem 5% 2rem}
         </div>
       </div>
       <div class="form-group">
-        <label for="fservice">Service You Need *</label>
+        <label for="fservice">Primary Service Interest *</label>
         <select id="fservice">
           <option value="">Select a service...</option>
           <option value="Marketing">Marketing (SEO, Social, Paid Ads)</option>
@@ -812,7 +349,7 @@ footer{background:var(--brand);color:#fff;padding:3.5rem 5% 2rem}
         </select>
       </div>
       <div class="form-group">
-        <label for="fbudget">Monthly Budget Range</label>
+        <label for="fbudget">Estimated Project Budget</label>
         <select id="fbudget">
           <option value="">Prefer not to say</option>
           <option value="Under ₹50K">Under ₹50,000 / month</option>
@@ -822,8 +359,8 @@ footer{background:var(--brand);color:#fff;padding:3.5rem 5% 2rem}
         </select>
       </div>
       <div class="form-group">
-        <label for="fmsg">Tell us about your project *</label>
-        <textarea id="fmsg" placeholder="Share your goals, current challenges, what you've tried before, and any details that will help us prepare the best proposal for you..."></textarea>
+        <label for="fmsg">Project Goals &amp; Requirements *</label>
+        <textarea id="fmsg" placeholder="Share your goals, current challenges, services you are interested in, and any details that will help us understand your business better..."></textarea>
       </div>
       <button class="form-submit" id="formSubmitBtn" onclick="submitForm()">
         <span id="submitBtnText">Send Message →</span>
@@ -852,17 +389,17 @@ footer{background:var(--brand);color:#fff;padding:3.5rem 5% 2rem}
       </div>
       <p>Your 24/7 digital growth partner for marketing, quality assurance, and product growth. One agency, everything your brand needs to scale.</p>
       <div class="footer-socials">
-        <a href="mailto:globalstackdigital@gmail.com" class="social-btn" title="Email">✉</a>
-        <a href="https://www.linkedin.com/in/global-stack-digital-107208406/" class="social-btn" title="LinkedIn">in</a>
-        <a href="https://x.com/globalstackhq" class="social-btn" title="Twitter/X">𝕏</a>
-        <a href="https://www.instagram.com/globalstackdigital/" class="social-btn" title="Instagram"> <i class="fab fa-instagram"></i></a>
+        <a href="mailto:globalstackdigital@gmail.com" class="social-btn" title="Email" target="_blank" rel="noopener noreferrer">✉</a>
+        <a href="https://www.linkedin.com/in/global-stack-digital-107208406/" class="social-btn" title="LinkedIn" target="_blank" rel="noopener noreferrer">in</a>
+        <a href="https://x.com/globalstackhq" class="social-btn" title="Twitter/X" target="_blank" rel="noopener noreferrer">𝕏</a>
+        <a href="https://www.instagram.com/globalstackdigital/" class="social-btn" title="Instagram" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
       </div>
     </div>
     <div class="footer-col">
       <h4>Services</h4>
       <ul>
-        <li><a href="#services">Marketing</a></li>
-        <li><a href="#services">Quality Assurance</a></li>
+        <li><a href="#services">Digital &amp; Performance Marketing</a></li>
+        <li><a href="#services">QA Intelligence &amp; Strategy</a></li>
         <li><a href="#services">Product Growth</a></li>
         <li><a href="#contact">Full Stack Bundle</a></li>
       </ul>
@@ -893,130 +430,7 @@ footer{background:var(--brand);color:#fff;padding:3.5rem 5% 2rem}
   </div>
 </footer>
 
-<script>
-// ── NAV scroll shadow
-window.addEventListener('scroll',()=>{
-  document.getElementById('mainNav').classList.toggle('scrolled',window.scrollY>20);
-});
-
-// ── Hamburger menu
-const hamburger=document.getElementById('hamburger');
-const mobileMenu=document.getElementById('mobileMenu');
-hamburger.addEventListener('click',()=>{
-  hamburger.classList.toggle('open');
-  mobileMenu.classList.toggle('open');
-  document.body.style.overflow=mobileMenu.classList.contains('open')?'hidden':'';
-});
-document.querySelectorAll('.mob-link,.mob-cta').forEach(el=>{
-  el.addEventListener('click',()=>{
-    hamburger.classList.remove('open');
-    mobileMenu.classList.remove('open');
-    document.body.style.overflow='';
-  });
-});
-
-// ── Scroll reveal
-const observer=new IntersectionObserver((entries)=>{
-  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')});
-},{threshold:0.12});
-document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
-
-// ── Contact Form — submits via Web3Forms
-// Access key is safe to be public — it can only submit to this form.
-const W3F_ACCESS_KEY = 'ffdcc896-2b4e-4f20-88bd-b9cc22549412';
-
-async function submitForm(){
-  const name    = document.getElementById('fname').value.trim();
-  const company = document.getElementById('fcompany').value.trim();
-  const email   = document.getElementById('femail').value.trim();
-  const phone   = document.getElementById('fphone').value.trim();
-  const service = document.getElementById('fservice').value;
-  const budget  = document.getElementById('fbudget').value;
-  const msg     = document.getElementById('fmsg').value.trim();
-
-  if(!name||!email||!service||!msg){showFieldError();return;}
-
-  const btn     = document.getElementById('formSubmitBtn');
-  const btnText = document.getElementById('submitBtnText');
-  btn.disabled  = true;
-  btnText.textContent = 'Sending...';
-
-  // Build FormData — Web3Forms reads field names directly
-  const formData = new FormData();
-  formData.append('access_key', W3F_ACCESS_KEY);
-  formData.append('name',       name);
-  formData.append('email',      email);
-  formData.append('subject',    `New Lead: ${name} — ${service}`);
-  formData.append('company',    company || 'N/A');
-  formData.append('phone',      phone   || 'N/A');
-  formData.append('service',    service);
-  formData.append('budget',     budget  || 'Not specified');
-  formData.append('message',    msg);
-  // Honeypot — blocks spam bots
-  formData.append('botcheck',   '');
-
-  try{
-    const res  = await fetch('https://api.web3forms.com/submit', {
-      method: 'POST',
-      body:   formData
-    });
-    const data = await res.json();
-
-    if(res.ok && data.success){
-      showSuccess();
-    } else {
-      throw new Error(data.message || 'Submission failed');
-    }
-  } catch(e){
-    showError(`Could not send right now. Please email us directly at globalstackdigital@gmail.com`);
-    console.error('Submit error:', e);
-  } finally {
-    btn.disabled = false;
-    btnText.textContent = 'Send Message';
-  }
-}
-
-function showSuccess(){
-  const el  = document.getElementById('fsuccess');
-  const err = document.getElementById('ferror');
-  if(err) err.style.display = 'none';
-  el.style.display = 'block';
-  ['fname','fcompany','femail','fphone','fservice','fbudget','fmsg'].forEach(id=>{
-    const f = document.getElementById(id); if(f) f.value = '';
-  });
-  setTimeout(()=>el.style.display='none', 6000);
-}
-
-function showError(msg){
-  let el = document.getElementById('ferror');
-  if(!el){
-    el = document.createElement('div');
-    el.id = 'ferror';
-    el.style.cssText = 'display:none;margin-top:1rem;padding:1rem 1.25rem;background:#fef2f2;border:1px solid #fecaca;border-radius:10px;color:#dc2626;font-size:0.875rem;font-weight:500;line-height:1.5;';
-    document.getElementById('fsuccess').insertAdjacentElement('afterend', el);
-  }
-  document.getElementById('fsuccess').style.display = 'none';
-  el.textContent = '⚠️ ' + msg;
-  el.style.display = 'block';
-  setTimeout(()=>el.style.display='none', 9000);
-}
-
-function showFieldError(){
-  ['fname','femail','fservice','fmsg'].forEach(id=>{
-    const el = document.getElementById(id);
-    if(!el.value.trim()){
-      el.style.borderColor  = '#ef4444';
-      el.style.boxShadow    = '0 0 0 3px rgba(239,68,68,0.1)';
-      el.addEventListener('input',()=>{
-        el.style.borderColor = '';
-        el.style.boxShadow   = '';
-      },{once:true});
-    }
-  });
-}
-
-
-</script>
+<script src="main.js"></script>
 
 </body>
 </html>
