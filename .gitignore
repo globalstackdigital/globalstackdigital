@@ -1,13 +1,51 @@
-# Private config — contains GitHub token, never push this
-config.js
+# ── Environment & Secrets ──────────────────────────────────
+.env
+.env.local
+.env.development
+.env.production
+.env.staging
+.env.*
 
-# OS files
+# ── Dependencies ────────────────────────────────────────────
+node_modules/
+.pnp
+.pnp.js
+
+# ── Build Outputs ───────────────────────────────────────────
+dist/
+build/
+out/
+.next/
+.nuxt/
+netlify/database/migrations/
+
+# ── Logs ────────────────────────────────────────────────────
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ── OS Files ────────────────────────────────────────────────
 .DS_Store
 Thumbs.db
+desktop.ini
 
-# Editor
+# ── Editor / IDE ────────────────────────────────────────────
 .vscode/
 .idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
 
-# Node (if applicable)
-node_modules/
+# ── Drizzle / Database ──────────────────────────────────────
+*.sqlite
+*.db
+drizzle/meta/
+
+# ── Misc ────────────────────────────────────────────────────
+*.pem
+*.key
+*.cert
+.cache/
+.temp/
