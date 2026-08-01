@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://globalstackdigital.github.io/globalstackdigital/sitemap.xml
