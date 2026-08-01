@@ -19,6 +19,17 @@ document.querySelectorAll('.mob-link,.mob-cta').forEach(el=>{
   });
 });
 
+// ── Mobile Services accordion
+const mobTrigger = document.querySelector('.mob-services-trigger');
+const mobSub     = document.getElementById('mobServicesSub');
+if(mobTrigger && mobSub){
+  mobTrigger.addEventListener('click',(e)=>{
+    e.stopPropagation();
+    const isOpen = mobSub.classList.toggle('open');
+    mobTrigger.classList.toggle('open', isOpen);
+  });
+}
+
 // ── Scroll reveal
 const observer=new IntersectionObserver((entries)=>{
   entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')});

@@ -28,6 +28,86 @@ nav{
 }
 nav.scrolled{box-shadow:var(--shadow)}
 
+/* ── NAV DROPDOWN ── */
+.nav-has-dropdown{position:relative;display:flex;align-items:center}
+.nav-dropdown-trigger{
+  display:inline-flex;align-items:center;gap:5px;
+  font-size:0.875rem;font-weight:500;color:var(--muted);text-decoration:none;
+  padding:7px 14px;border-radius:8px;transition:all 0.2s;cursor:pointer;line-height:1;
+}
+.nav-dropdown-trigger:hover{color:var(--brand);background:#f0f4fd}
+.nav-chevron{transition:transform 0.25s;flex-shrink:0}
+.nav-has-dropdown:hover .nav-chevron{transform:rotate(180deg)}
+
+.nav-dropdown{
+  position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%);
+  width:280px;background:#fff;border:1px solid var(--border);
+  border-radius:18px;padding:0.6rem;
+  box-shadow:0 16px 48px rgba(10,22,40,0.14);
+  opacity:0;visibility:hidden;pointer-events:none;
+  transform:translateX(-50%) translateY(-8px);
+  transition:opacity 0.22s,transform 0.22s,visibility 0.22s;
+  z-index:300;
+}
+.nav-has-dropdown:hover .nav-dropdown{
+  opacity:1;visibility:visible;pointer-events:auto;
+  transform:translateX(-50%) translateY(0);
+}
+/* little arrow pointer */
+.nav-dropdown::before{
+  content:'';position:absolute;top:-6px;left:50%;transform:translateX(-50%);
+  width:12px;height:12px;background:#fff;
+  border-left:1px solid var(--border);border-top:1px solid var(--border);
+  rotate:45deg;border-radius:2px;
+}
+.nav-dd-item{
+  display:flex;align-items:center;gap:12px;
+  padding:10px 12px;border-radius:12px;text-decoration:none;
+  transition:background 0.18s;
+}
+.nav-dd-item:hover{background:#f8faff}
+.nav-dd-icon{
+  width:36px;height:36px;border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1rem;flex-shrink:0;
+}
+.nav-dd-icon.blue{background:linear-gradient(135deg,#eff6ff,#dbeafe)}
+.nav-dd-icon.green{background:linear-gradient(135deg,#ecfdf5,#d1fae5)}
+.nav-dd-icon.orange{background:linear-gradient(135deg,#fff7ed,#fed7aa)}
+.nav-dd-title{font-family:var(--font-display);font-weight:700;font-size:0.87rem;color:var(--brand);margin-bottom:1px;line-height:1.2}
+.nav-dd-sub{font-size:0.72rem;color:var(--muted);line-height:1.3}
+
+/* Mobile accordion */
+.mob-services-wrap{display:flex;flex-direction:column}
+.mob-services-trigger{
+  background:none;border:none;cursor:pointer;text-align:left;
+  display:flex;align-items:center;justify-content:space-between;width:100%;
+  font-family:var(--font-display);font-weight:700;font-size:1.2rem;
+  color:var(--brand);padding:1rem 0;border-bottom:1px solid var(--border);
+}
+.mob-chevron{transition:transform 0.25s;flex-shrink:0;color:var(--muted)}
+.mob-services-trigger.open .mob-chevron{transform:rotate(180deg)}
+.mob-services-sub{
+  max-height:0;
+  transition:max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow:hidden;
+}
+.mob-services-sub.open{max-height:200px}
+.mobile-menu .mob-sub-link{
+  font-family:var(--font-body) !important;
+  font-weight:500 !important;
+  font-size:0.8rem !important;
+  color:var(--muted);
+  padding:8px 0 8px 0.75rem;
+  border-bottom:1px solid var(--border);
+  display:flex;
+  align-items:center;
+  gap:8px;
+  text-decoration:none;
+}
+.mobile-menu .mob-sub-link:hover{color:var(--accent-blue)}
+
+
 /* SVG Logo */
 .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
 .logo-mark{flex-shrink:0}
@@ -37,10 +117,10 @@ nav.scrolled{box-shadow:var(--shadow)}
 }
 .logo-wordmark em{color:var(--accent-blue);font-style:normal}
 
-.nav-links{display:flex;gap:0.25rem;list-style:none}
+.nav-links{display:flex;gap:0.25rem;list-style:none;align-items:center}
 .nav-links a{
   font-size:0.875rem;font-weight:500;color:var(--muted);text-decoration:none;
-  padding:7px 14px;border-radius:8px;transition:all 0.2s;
+  padding:7px 14px;border-radius:8px;transition:all 0.2s;display:flex;align-items:center;
 }
 .nav-links a:hover{color:var(--brand);background:#f0f4fd}
 .nav-right{display:flex;align-items:center;gap:12px}
@@ -230,7 +310,7 @@ section{padding:96px 5%}
 .svc-card::after{
   content:'';position:absolute;inset:0;border-radius:24px;opacity:0;
   background:linear-gradient(145deg,rgba(37,99,235,0.03),rgba(0,214,143,0.03));
-  transition:opacity 0.3s;
+  transition:opacity 0.3s;pointer-events:none;
 }
 .svc-card:hover::after{opacity:1}
 .svc-top-bar{position:absolute;top:0;left:0;right:0;height:3px;border-radius:24px 24px 0 0}
@@ -250,6 +330,12 @@ section{padding:96px 5%}
 .svc-card h3{font-family:var(--font-display);font-weight:700;font-size:1.2rem;color:var(--brand);margin-bottom:0.75rem}
 .svc-card p{color:var(--muted);font-size:0.9rem;line-height:1.7;margin-bottom:1.5rem}
 .svc-tags{display:flex;flex-wrap:wrap;gap:7px}
+/* Card footer: tags left, button right — same horizontal row */
+.svc-card-footer{
+  display:flex;align-items:center;justify-content:space-between;
+  column-gap:1rem;row-gap:1.25rem;flex-wrap:wrap;margin-top:2rem;padding-top:1.25rem;
+  border-top:1px solid var(--border);
+}
 .svc-tag{
   font-size:0.71rem;font-weight:600;padding:4px 11px;border-radius:50px;
   letter-spacing:0.2px;
@@ -257,6 +343,23 @@ section{padding:96px 5%}
 .svc-tag.blue{background:#eff6ff;color:#1d4ed8;border:1px solid #bfdbfe}
 .svc-tag.green{background:#ecfdf5;color:#065f46;border:1px solid #a7f3d0}
 .svc-tag.orange{background:#fff7ed;color:#9a3412;border:1px solid #fdba74}
+
+/* Service card CTA buttons */
+.svc-btn{
+  display:inline-flex;align-items:center;gap:7px;
+  padding:9px 18px;border-radius:50px;flex-shrink:0;
+  font-size:0.82rem;font-weight:600;text-decoration:none;
+  letter-spacing:0.1px;transition:all 0.22s;
+  position:relative;z-index:1;white-space:nowrap;
+}
+.svc-btn svg{transition:transform 0.2s;flex-shrink:0}
+.svc-btn:hover svg{transform:translateX(3px)}
+.svc-btn-blue{background:#2563eb;color:#fff;box-shadow:0 4px 14px rgba(37,99,235,0.28)}
+.svc-btn-blue:hover{background:#1d4ed8;box-shadow:0 6px 20px rgba(37,99,235,0.4);transform:translateY(-1px)}
+.svc-btn-green{background:#00b87a;color:#fff;box-shadow:0 4px 14px rgba(0,214,143,0.28)}
+.svc-btn-green:hover{background:#00a36b;box-shadow:0 6px 20px rgba(0,214,143,0.4);transform:translateY(-1px)}
+.svc-btn-orange{background:#f97316;color:#fff;box-shadow:0 4px 14px rgba(249,115,22,0.28)}
+.svc-btn-orange:hover{background:#ea6c0a;box-shadow:0 6px 20px rgba(249,115,22,0.4);transform:translateY(-1px)}
 
 /* ── WHY US ── */
 .why-section{background:#fff}
