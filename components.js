@@ -40,7 +40,7 @@
         <li><a href="../#contact">Contact</a></li>
       </ul>
       <div class="nav-right">
-        <a href="../#contact" class="nav-cta">Get Free Consultation →</a>
+        <a href="../#contact" class="nav-cta">Claim Free Audit →</a>
         <button class="hamburger" id="hamburger" aria-label="Open menu">
           <span></span><span></span><span></span>
         </button>
@@ -62,7 +62,7 @@
       <a href="../#why" class="mob-link">Why Us</a>
       <a href="../#process" class="mob-link">Process</a>
       <a href="../#contact" class="mob-link">Contact</a>
-      <a href="../#contact" class="mob-cta">Get Free Consultation →</a>
+      <a href="../#contact" class="mob-cta">Claim Free Audit →</a>
     </div>
   `;
 
