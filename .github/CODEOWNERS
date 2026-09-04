@@ -6,8 +6,6 @@
 # HTML files (main site)
 *.html @globalstackdigital
 
-# Config files (sensitive — extra protection)
-drizzle.config.ts @globalstackdigital
-package.json @globalstackdigital
-tsconfig.json @globalstackdigital
-package-lock.json @globalstackdigital
+# Shared styles & behaviour
+styles.css @globalstackdigital
+main.js @globalstackdigital

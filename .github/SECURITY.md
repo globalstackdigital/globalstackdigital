@@ -24,8 +24,8 @@ We aim to respond within **48 hours** and resolve critical issues within **7 day
 
 ## Scope
 
-- `index.html` — main website
-- `drizzle.config.ts` — database config
+- `index.html`, `digital-marketing/`, `qa-intelligence/`, `growth-strategy/` — main site
+- `styles.css`, `main.js` — shared frontend code
 - Any exposed credentials or sensitive data
 
 ## Out of Scope
