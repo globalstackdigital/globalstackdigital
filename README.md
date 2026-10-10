@@ -1,6 +1,6 @@
 # Global Stack Digital
 
-**Your 24/7 Digital Growth Buddy**
+**Your Digital Growth Partner**
 
 Global Stack Digital is your all-in-one agency for Marketing, Quality Assurance, and Product Growth — helping ambitious brands scale smarter from Ahmedabad to everywhere.
 
@@ -14,18 +14,29 @@ Global Stack Digital is your all-in-one agency for Marketing, Quality Assurance,
 
 **Marketing** — SEO, Social Media, Paid Ads, Email Campaigns, Content Marketing
 
-**Quality Assurance** — Manual Testing, Automation, App Testing, Performance QA, Bug Reporting
+**Quality Assurance** — Manual Testing, Test Automation, App Testing, Performance QA, Security QA, Bug Reporting
 
 **Product Growth** — Growth Strategy, Analytics, User Research, A/B Testing, Funnel Optimization
 
-**Full Stack Bundle** — All three services combined
+**Full Stack Bundle** — Marketing, Quality Assurance, and Product Growth combined in one engagement
+
+---
+
+## Legal pages
+
+- Privacy Policy: `/privacy-policy/`
+- Terms of Service: `/terms-of-service/`
+- Cookie Policy: `/cookie-policy/`
+- Security & Data Handling: `/security/`
+
+Analytics (Mixpanel) loads only after a visitor accepts analytics cookies via the consent banner (`consent.js`). Visitors can change their choice any time from the "Cookie Settings" link in the footer.
 
 ---
 
 ## Why Global Stack Digital
 
 - ⚡ Speed & Agility — startup speed, no bureaucracy
-- 🎯 Result-Oriented — every strategy tied to measurable business goals
+- 🎯 Goal-Oriented — every strategy tied to measurable business goals
 - 🤝 True Partnership — we embed in your team, not just a vendor
 - 🌍 Global Perspective, Local Roots — world-class thinking on every project
 

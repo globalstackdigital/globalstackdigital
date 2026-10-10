@@ -2,26 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://globalstackdigital.github.io/globalstackdigital/</loc>
-    <lastmod>2026-09-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+    <lastmod>2026-10-10</lastmod>
   </url>
   <url>
     <loc>https://globalstackdigital.github.io/globalstackdigital/digital-marketing/</loc>
-    <lastmod>2026-09-04</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-10-10</lastmod>
   </url>
   <url>
     <loc>https://globalstackdigital.github.io/globalstackdigital/qa-intelligence/</loc>
-    <lastmod>2026-09-04</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-10-10</lastmod>
   </url>
   <url>
     <loc>https://globalstackdigital.github.io/globalstackdigital/growth-strategy/</loc>
-    <lastmod>2026-09-04</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-10-10</lastmod>
+  </url>
+  <url>
+    <loc>https://globalstackdigital.github.io/globalstackdigital/privacy-policy/</loc>
+    <lastmod>2026-10-10</lastmod>
+  </url>
+  <url>
+    <loc>https://globalstackdigital.github.io/globalstackdigital/terms-of-service/</loc>
+    <lastmod>2026-10-10</lastmod>
+  </url>
+  <url>
+    <loc>https://globalstackdigital.github.io/globalstackdigital/cookie-policy/</loc>
+    <lastmod>2026-10-10</lastmod>
+  </url>
+  <url>
+    <loc>https://globalstackdigital.github.io/globalstackdigital/security/</loc>
+    <lastmod>2026-10-10</lastmod>
   </url>
 </urlset>
