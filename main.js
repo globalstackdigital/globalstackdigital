@@ -47,8 +47,12 @@
       burger.setAttribute("aria-expanded", open ? "true" : "false");
       document.body.style.overflow = open ? "hidden" : "";
     }
+    burger.setAttribute("aria-controls", "drawer");
     burger.addEventListener("click", function () { set(!drawer.classList.contains("open")); });
     drawer.addEventListener("click", function (e) { if (e.target.closest("a")) set(false); });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && drawer.classList.contains("open")) { set(false); burger.focus(); }
+    });
   }
 
   /* ---- contact form: Web3Forms submit + local draft autosave ---- */
@@ -56,6 +60,7 @@
     var form = document.getElementById("leadForm");
     if (!form) return;
     var tag = document.getElementById("savedTag"), note = form.querySelector(".fnote");
+    if (note) note.setAttribute("aria-live", "polite"); /* status messages only ever touch .fnote, never .form-consent */
     var fields = ["n", "co", "e", "ph", "sv", "bd", "ms"], KEY = "gsd-lead-draft", t;
 
     try {
@@ -81,11 +86,11 @@
       var name = val("n"), email = val("e"), service = form.querySelector("#sv").value, msg = val("ms");
       var btn = form.querySelector("button[type=submit]");
       if (!name || !email || !service || !msg) {
-        note.style.color = "#b3261e";
+        note.classList.add("is-err");
         note.textContent = "Please add your name, email, service and project details.";
         return;
       }
-      note.style.color = ""; var label = btn.textContent;
+      note.classList.remove("is-err"); var label = btn.textContent;
       btn.disabled = true; btn.textContent = "Sending\u2026";
 
       var fd = new FormData();
@@ -101,16 +106,17 @@
         var r = await fetch("https://api.web3forms.com/submit", { method: "POST", body: fd });
         var data = await r.json();
         if (r.ok && data.success) {
-          form.reset();
+          form.reset(); clearTimeout(t); /* a pending autosave must not re-create the draft */
           try { localStorage.removeItem(KEY); } catch (e) {}
-          tag.hidden = true; note.style.color = "";
-          note.textContent = "\u2705 Message sent \u2014 we'll reply within 24 hours.";
-          if (window.mixpanel && mixpanel.track) mixpanel.track("Lead Submitted", { service: service });
+          tag.hidden = true; note.classList.remove("is-err");
+          note.textContent = "Message sent. We'll reply within 24 hours.";
+          /* analytics is optional: only fires if the visitor accepted it (see consent.js) */
+          try { if (window.mixpanel && typeof window.mixpanel.track === "function") window.mixpanel.track("Lead Submitted", { service: service }); } catch (e) {}
         } else {
           throw new Error(data.message || "failed");
         }
       } catch (err) {
-        note.style.color = "#b3261e";
+        note.classList.add("is-err");
         note.textContent = "Could not send right now. Please email globalstackdigital@gmail.com directly.";
       } finally {
         btn.disabled = false; btn.textContent = label;
