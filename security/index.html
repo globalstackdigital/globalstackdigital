@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Security and Data Handling | Global Stack Digital</title>
+<meta name="description" content="How Global Stack Digital handles client data and secures this static website: least-privilege access, test data practices, deletion at engagement end, and responsible disclosure.">
+<meta name="theme-color" content="#FBFAF6">
+<link rel="canonical" href="https://globalstackdigital.github.io/globalstackdigital/security/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://globalstackdigital.github.io/globalstackdigital/security/">
+<meta property="og:title" content="Security and Data Handling | Global Stack Digital">
+<meta property="og:description" content="How Global Stack Digital handles client data and secures this static website: least-privilege access, test data practices, deletion at engagement end, and responsible disclosure.">
+<meta property="og:image" content="https://globalstackdigital.github.io/globalstackdigital/assets/og-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://globalstackdigital.github.io/globalstackdigital/security/">
+<meta name="twitter:title" content="Security and Data Handling | Global Stack Digital">
+<meta name="twitter:description" content="How Global Stack Digital handles client data and secures this static website: least-privilege access, test data practices, deletion at engagement end, and responsible disclosure.">
+<meta name="twitter:image" content="https://globalstackdigital.github.io/globalstackdigital/assets/og-card.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://globalstackdigital.github.io/globalstackdigital/security/#webpage",
+      "name": "Security and Data Handling",
+      "description": "How Global Stack Digital handles client data and secures this static website: least-privilege access, test data practices, deletion at engagement end, and responsible disclosure.",
+      "url": "https://globalstackdigital.github.io/globalstackdigital/security/",
+      "dateModified": "2026-10-10",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Global Stack Digital",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://globalstackdigital.github.io/globalstackdigital/assets/image.png"
+        }
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://globalstackdigital.github.io/globalstackdigital/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Security and Data Handling",
+          "item": "https://globalstackdigital.github.io/globalstackdigital/security/"
+        }
+      ]
+    }
+  ]
+}
+</script>
+<link rel="icon" type="image/png" href="../assets/image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../legal.css">
+<script>try{if(localStorage.getItem("gsd-theme")==="dark")document.documentElement.setAttribute("data-theme","dark")}catch(e){}</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header>
+  <div class="wrap nav">
+    <a href="../" class="brand"><img class="gs" src="../assets/image.png" alt="Global Stack Digital logo" width="34" height="34"><span class="wm">Global <em>Stack</em>&nbsp;Digital</span></a>
+    <nav class="nav-links">
+      <a href="../">Home</a>
+      <a href="../digital-marketing/">Digital Marketing</a>
+      <a href="../qa-intelligence/">QA Intelligence</a>
+      <a href="../growth-strategy/">Growth Strategy</a>
+      <a href="../#contact">Contact</a>
+    </nav>
+    <div class="nav-right">
+      <button class="themebtn" id="themebtn" aria-label="Toggle colour theme">◐</button>
+      <a href="../#contact" class="btn btn-fill">Claim Free Audit</a>
+      <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="drawer" id="drawer">
+    <a href="../">Home</a>
+    <a href="../digital-marketing/">Digital Marketing</a>
+    <a href="../qa-intelligence/">QA Intelligence</a>
+    <a href="../growth-strategy/">Growth Strategy</a>
+    <a href="../#contact">Contact</a>
+    <a href="../#contact" class="btn btn-fill">Claim Free Audit</a>
+  </div>
+</header>
+<main id="main">
+  <section class="phero legal-hero">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Home</a><span aria-hidden="true">/</span><span aria-current="page">Security and Data Handling</span></nav>
+      <span class="folio">Legal</span>
+      <h1>Security &amp; <span class="serif-accent">data handling.</span></h1>
+      <p class="lede">An honest description of how we handle your data, what this website does and does not collect, and how to report a vulnerability.</p>
+      <p class="legal-meta"><span>Last updated <time datetime="2026-10-10">10 October 2026</time></span><span>Effective <time datetime="2026-10-10">10 October 2026</time></span></p>
+    </div>
+  </section>
+  <section class="legal-section">
+    <div class="wrap legal-layout">
+      <nav class="legal-toc" aria-label="On this page">
+        <h2 class="legal-toc-title">On this page</h2>
+        <ol><li><a href="#s1">1. Our approach</a></li><li><a href="#s2">2. Access control and least privilege</a></li><li><a href="#s3">3. Credential handling</a></li><li><a href="#s4">4. QA and test data</a></li><li><a href="#s5">5. Confidentiality and NDA</a></li><li><a href="#s6">6. Where data lives</a></li><li><a href="#s7">7. Retention and deletion at engagement end</a></li><li><a href="#s8">8. Incident and breach notification</a></li><li><a href="#s9">9. Website security</a></li><li><a href="#s10">10. Responsible disclosure</a></li><li><a href="#s11">11. Data Processing Agreement (DPA)</a></li><li><a href="#s12">12. Your part</a></li><li><a href="#s13">13. Contact</a></li></ol>
+      </nav>
+      <article class="legal-prose">
+
+<p>This page describes how <strong>Global Stack Digital</strong> (&ldquo;Global Stack Digital&rdquo;, &ldquo;we&rdquo;, &ldquo;us&rdquo;, &ldquo;our&rdquo;) works. We are a small, focused agency and would rather be accurate than impressive. We do not currently hold formal security certifications, and we do not claim any. Where we depend on a provider&rsquo;s controls, we say so. Contact: <a href="mailto:globalstackdigital@gmail.com">globalstackdigital@gmail.com</a>.</p>
+
+<h2 id="s1">1. Our approach</h2>
+<ul>
+<li><strong>Collect less.</strong> We ask only for the data and access needed for the job.</li>
+<li><strong>Limit access.</strong> We aim to give access only to the people working on your engagement.</li>
+<li><strong>Delete when done.</strong> We aim for your data not to stay with us after the work ends.</li>
+<li><strong>Be upfront.</strong> If something goes wrong with your data, we tell you.</li>
+</ul>
+
+<h2 id="s2">2. Access control and least privilege</h2>
+<ul>
+<li>We ask for access on a need-to-know basis, at the lowest permission level that lets us do the work (for example &ldquo;Standard&rdquo; or &ldquo;Analyst&rdquo; roles instead of &ldquo;Admin&rdquo; where possible).</li>
+<li>We ask clients to add us as named users or through the platform&rsquo;s official agency / partner access (Google Ads manager access, Meta Business partner access, GA4 and Search Console user roles, and so on) rather than sharing a personal login.</li>
+<li>Access should be removed when the engagement ends or a team member stops working on it. We recommend you also review and revoke access on your side.</li>
+</ul>
+
+<h2 id="s3">3. Credential handling</h2>
+<ul>
+<li>We prefer role-based invitations over passwords. If a credential must be shared, please send it through a password manager&rsquo;s share feature or another encrypted method, never plain email, chat or documents.</li>
+<li>API keys and tokens should be scoped and time-limited where possible. We stop using shared access at the end of the engagement, and ask you to rotate any credential you shared.</li>
+</ul>
+
+<h2 id="s4">4. QA and test data</h2>
+<ul>
+<li>Please give us <strong>test, staging or synthetic data</strong> wherever possible. Most testing does not need real customer data.</li>
+<li>If production data is needed, tell us in advance, limit it to the minimum, and mask or anonymise it where practical. Do not share payment card numbers, government IDs, health data or other sensitive categories without prior written agreement.</li>
+<li>We ask for dedicated test accounts rather than employee or customer accounts.</li>
+<li>We aim to scrub personal data and credentials from test evidence (screenshots, logs, recordings, bug reports) where reasonable before it is shared or stored.</li>
+<li>Findings stay inside agreed channels (your issue tracker, a shared folder, or email).</li>
+<li>We do not run intrusive security or penetration testing, or load tests that could disrupt production, unless agreed in writing in the SOW and permitted by you.</li>
+</ul>
+
+<h2 id="s5">5. Confidentiality and NDA</h2>
+<p>Confidentiality is part of our <a href="../terms-of-service/#s14">Terms of Service</a>. A <strong>mutual NDA is available on request</strong>, and we are happy to review and sign yours.</p>
+
+<h2 id="s6">6. Where data lives</h2>
+<ul>
+<li>Business email and files: Gmail (Google).</li>
+<li>Website contact form: Web3Forms, which relays submissions to our email inbox.</li>
+<li>Site analytics: Mixpanel, loaded only if you accept on the cookie banner.</li>
+<li>Website hosting: GitHub Pages, served over HTTPS.</li>
+</ul>
+<p>See the <a href="../privacy-policy/">Privacy Policy</a> for providers and transfers.</p>
+
+<h2 id="s7">7. Retention and deletion at engagement end</h2>
+<ul>
+<li>At the end of an engagement we delete or return client data, exports, test data and stored credentials within 30 days of the end date or your written request, unless the law requires us to keep something (for example invoices and contracts).</li>
+<li>Records kept for legal or tax purposes are limited to what is needed.</li>
+<li>Provider backups expire on the providers&rsquo; normal schedule. On request, we will confirm deletion in writing.</li>
+</ul>
+
+<h2 id="s8">8. Incident and breach notification</h2>
+<p>If we become aware of a personal data breach or security incident affecting your data we will:</p>
+<ol>
+<li>contain it and investigate promptly;</li>
+<li>notify affected clients without undue delay once we have confirmed it, with what we know, the likely impact and the steps being taken;</li>
+<li>help you meet your own notification duties (for example to CERT-In and the Data Protection Board in India, a GDPR / UK supervisory authority within 72 hours, or relevant US state, UAE or Australian authorities);</li>
+<li>share what we learned and what we changed.</li>
+</ol>
+<p>Where we are ourselves the responsible party, we will notify individuals and regulators as the law requires.</p>
+
+<h2 id="s9">9. Website security</h2>
+<p>This website is a static site served over HTTPS from GitHub Pages.</p>
+<ul>
+<li>It has <strong>no user accounts or logins</strong>, so there are no passwords stored on the site.</li>
+<li>It <strong>takes no payments</strong> and collects no payment card data.</li>
+<li>It collects minimal data: the contact form fields you choose to send, which are relayed to our email through Web3Forms.</li>
+<li>We keep third-party scripts to a minimum: Google Fonts, Web3Forms for the contact form, and Mixpanel analytics only after you accept.</li>
+</ul>
+<p>Because the site is hosted by GitHub Pages, transport security and server-level protections depend on GitHub&rsquo;s platform.</p>
+
+<h2 id="s10">10. Responsible disclosure</h2>
+<p>If you find a security vulnerability on our site or in how we handle data, please tell us:</p>
+<ul>
+<li>Email <strong><a href="mailto:globalstackdigital@gmail.com?subject=Security%20report">globalstackdigital@gmail.com</a></strong> with the subject &ldquo;Security report&rdquo;.</li>
+<li>Include what you found, steps to reproduce, and your contact details.</li>
+<li>Please give us reasonable time to fix the issue before sharing details publicly. Do not access or change other people&rsquo;s data, disrupt the service, or use social engineering or physical attacks.</li>
+<li>We will acknowledge your report within 7 days, keep you updated, and credit you if you wish. We do not currently run a paid bug bounty.</li>
+</ul>
+
+<h2 id="s11">11. Data Processing Agreement (DPA)</h2>
+<p>If we process personal data for you (for example customer lists, or test data containing personal information), a <strong>DPA is available on request</strong>. It covers purpose limitation, confidentiality, security, subprocessors, help with data-subject requests, breach notice, international transfers (including standard contractual clauses or the UK Addendum where required), and deletion or return. Request it at <a href="mailto:globalstackdigital@gmail.com">globalstackdigital@gmail.com</a>.</p>
+
+<h2 id="s12">12. Your part</h2>
+<p>Security is shared. Please use least-privilege access, keep multi-factor authentication on for your accounts, tell us when your team changes, avoid sharing sensitive data we do not need, and tell us quickly about any suspected compromise.</p>
+
+<h2 id="s13">13. Contact</h2>
+<address>Security &amp; privacy: <a href="mailto:globalstackdigital@gmail.com">globalstackdigital@gmail.com</a><br>Grievance Officer: Grievance Officer, Global Stack Digital (<a href="mailto:globalstackdigital@gmail.com">globalstackdigital@gmail.com</a>)</address>
+
+      </article>
+    </div>
+  </section>
+</main>
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div class="fb">
+        <a href="../" class="brand"><img class="gs" src="../assets/image.png" alt="Global Stack Digital logo" width="34" height="34"><span class="wm">Global <em>Stack</em>&nbsp;Digital</span></a>
+        <p>A growth-focused digital partner: marketing, QA intelligence, and scalable solutions built to improve visibility, performance, and customer experience.</p>
+        <div class="socials">
+          <a href="mailto:globalstackdigital@gmail.com" title="Email">✉</a>
+          <a href="https://www.linkedin.com/in/global-stack-digital-107208406/" title="LinkedIn" target="_blank" rel="noopener">in</a>
+          <a href="https://x.com/globalstackhq" title="X" target="_blank" rel="noopener">𝕏</a>
+          <a href="https://www.instagram.com/globalstackdigital/" title="Instagram" target="_blank" rel="noopener">◉</a>
+        </div>
+      </div>
+      <div><h4>Services</h4><ul><li><a href="../digital-marketing/">Digital &amp; Performance Marketing</a></li><li><a href="../qa-intelligence/">QA Intelligence &amp; Strategy</a></li><li><a href="../growth-strategy/">Product Growth</a></li></ul></div>
+      <div><h4>Company</h4><ul><li><a href="../">Home</a></li><li><a href="../#contact">Contact</a></li></ul></div>
+      <div><h4>Contact</h4><ul><li><a href="mailto:globalstackdigital@gmail.com">globalstackdigital@gmail.com</a></li><li><a href="../#contact">Ahmedabad, Gujarat, India</a></li></ul></div>
+    </div>
+    <nav class="footer-legal" aria-label="Legal">
+      <a href="../privacy-policy/">Privacy Policy</a>
+      <a href="../terms-of-service/">Terms of Service</a>
+      <a href="../cookie-policy/">Cookie Policy</a>
+      <a href="../security/" aria-current="page">Security &amp; Data Handling</a>
+      <a href="#" data-cookie-settings>Cookie Settings</a>
+    </nav>
+    <div class="fbottom">
+      <span>© 2026 Global Stack Digital. All rights reserved.</span>
+      <span>Serving globally</span>
+    </div>
+  </div>
+</footer>
+<script src="../main.js" defer></script>
+<script src="../consent.js" defer></script>
+</body>
+</html>
