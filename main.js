@@ -109,7 +109,7 @@
           form.reset(); clearTimeout(t); /* a pending autosave must not re-create the draft */
           try { localStorage.removeItem(KEY); } catch (e) {}
           tag.hidden = true; note.classList.remove("is-err");
-          note.textContent = "Message sent. We'll reply within 24 hours.";
+          note.textContent = "Message sent. We'll reply within 24 working hours.";
           /* analytics is optional: only fires if the visitor accepted it (see consent.js) */
           try { if (window.mixpanel && typeof window.mixpanel.track === "function") window.mixpanel.track("Lead Submitted", { service: service }); } catch (e) {}
         } else {
