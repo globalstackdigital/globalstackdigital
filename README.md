@@ -29,7 +29,7 @@ Global Stack Digital is your all-in-one agency for Marketing, Quality Assurance,
 - Cookie Policy: `/cookie-policy/`
 - Security & Data Handling: `/security/`
 
-Analytics (Mixpanel) loads only after a visitor accepts analytics cookies via the consent banner (`consent.js`). Visitors can change their choice any time from the "Cookie Settings" link in the footer.
+Analytics (Mixpanel) runs on every visit via `analytics.js`. The site has no cookie banner or consent UI; the Privacy Policy and Cookie Policy describe this and how visitors can limit tracking.
 
 ---
 
