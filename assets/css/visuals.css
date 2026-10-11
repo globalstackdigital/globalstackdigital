@@ -1,0 +1,210 @@
+/* visuals.css - illustrations, icon-led layouts and decorative backgrounds for Global Stack Digital.
+   Loaded after styles.css on the home page and the three service pages. Uses only the design-system
+   variables, so light and dark themes follow automatically. No JavaScript is required. */
+
+:root{--on-acc:#FFFFFF;--vshadow:rgba(23,36,30,.16)}
+:root[data-theme="dark"]{--on-acc:#0E1A15;--vshadow:rgba(0,0,0,.5)}
+
+/* ---------- icons and inline illustrations ---------- */
+.vi{width:1em;height:1em;display:block;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+.vsvg{display:block;width:100%;height:auto;overflow:visible}
+.vsvg .sw{fill:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.vsvg .g24{fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.fl-1{fill:var(--qa)}.fl-2{fill:color-mix(in srgb,var(--qa) 80%,var(--ink))}.fl-3{fill:color-mix(in srgb,var(--qa) 62%,var(--ink))}
+.vsvg .lbl{font:600 15px "Instrument Sans",system-ui,sans-serif;fill:var(--ink);text-anchor:middle}
+.vsvg .lbl-s{text-anchor:start}.vsvg .lbl-e{text-anchor:end}
+.vsvg .loop-arc{fill:none;stroke-width:4;stroke-linecap:round}
+.vsvg .g24-m{fill:none;stroke:var(--grw);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.vsvg .g24t{stroke-width:.9}
+.vsvg .sw2{fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.s-card{fill:var(--card);stroke:var(--rule);stroke-width:1.5}
+.s-raise{fill:var(--raise)}
+.s-rule{fill:var(--rule)}
+.s-line{fill:none;stroke:var(--rule);stroke-width:1.5}
+.s-line.dash{stroke-dasharray:3 6}
+.s-m{fill:var(--mkt)}.s-q{fill:var(--qa)}.s-g{fill:var(--grw)}.s-p{fill:var(--pine)}.s-amber{fill:var(--amber)}.s-a{fill:var(--acc,var(--pine))}
+.st-m{stroke:var(--mkt);fill:none}.st-q{stroke:var(--qa);fill:none}.st-g{stroke:var(--grw);fill:none}.st-p{stroke:var(--pine);fill:none}.st-amber{stroke:var(--amber);fill:none}.st-a{stroke:var(--acc,var(--pine));fill:none}
+.st-card{stroke:var(--card);fill:none}.st-on{stroke:var(--on-acc);fill:none}
+.f-m10{fill:color-mix(in srgb,var(--mkt) 12%,var(--card))}
+.f-q10{fill:color-mix(in srgb,var(--qa) 12%,var(--card))}
+.f-g10{fill:color-mix(in srgb,var(--grw) 13%,var(--card))}
+.f-p10{fill:color-mix(in srgb,var(--pine) 11%,var(--card))}
+.f-a10{fill:color-mix(in srgb,var(--acc,var(--pine)) 12%,var(--card))}
+.ring{fill:none;stroke:var(--rule);stroke-width:5}
+.dot{fill:var(--pine);stroke:var(--card);stroke-width:3}
+.card-pill{fill:var(--card);opacity:.6}
+.lens{fill:none;stroke:var(--qa);stroke-width:7}
+.lenshandle{fill:none;stroke:var(--qa);stroke-width:10;stroke-linecap:round}
+.vsvg .chip{filter:drop-shadow(0 10px 16px var(--vshadow))}
+.vsvg .win{filter:drop-shadow(0 18px 28px var(--vshadow))}
+
+/* subtle motion: floating cards and a chart line that draws once. Disabled for reduced motion (see below). */
+.vsvg .draw{stroke-dasharray:1;stroke-dashoffset:0;stroke-linecap:round;stroke-linejoin:round;animation:vdraw 1.7s ease-out .25s both}
+.vsvg .chip.c1{animation:vfloat 7s ease-in-out infinite}
+.vsvg .chip.c2{animation:vfloat 8s ease-in-out -2s infinite}
+.vsvg .chip.c3{animation:vfloat 9s ease-in-out -4s infinite}
+@keyframes vdraw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+@keyframes vfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@media (prefers-reduced-motion:reduce){.vsvg .draw,.vsvg .chip{animation:none!important}}
+
+/* ---------- home hero ---------- */
+.hero{position:relative;overflow:hidden;padding:72px 0 64px}
+.hero::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(color-mix(in srgb,var(--ink) 16%,transparent) 1px,transparent 1.4px);background-size:22px 22px;-webkit-mask-image:radial-gradient(ellipse 60% 85% at 88% 30%,#000 0,transparent 72%);mask-image:radial-gradient(ellipse 60% 85% at 88% 30%,#000 0,transparent 72%)}
+.hero::after{content:"";position:absolute;width:560px;height:560px;right:-120px;top:-160px;border-radius:50%;pointer-events:none;background:radial-gradient(closest-side,color-mix(in srgb,var(--pine) 9%,transparent),transparent)}
+.hero .wrap{position:relative;z-index:1}
+.hero .hero-top{display:grid;grid-template-columns:minmax(0,1.02fr) minmax(0,.98fr);column-gap:44px;align-items:center}
+.hero .hero-side{border:0;padding:0;margin-top:1.4rem;max-width:46ch}
+.hero .hero-copy .hero-cta{margin:1.8rem 0 0}
+.hero h1{font-size:clamp(2.1rem,5vw,3.9rem)}
+.hero-art{margin:0;min-width:0}
+.hero-art figcaption{font-size:.72rem;color:var(--soft);text-align:center;margin-top:.4rem;letter-spacing:.02em}
+
+/* stat strips with icons */
+.hero-strip .hs{display:flex;align-items:center;gap:16px}
+.hi{width:46px;height:46px;border-radius:13px;display:grid;place-items:center;font-size:1.3rem;flex-shrink:0;color:var(--pine-ink);background:color-mix(in srgb,var(--acc,var(--pine)) 11%,var(--card));border:1px solid color-mix(in srgb,var(--acc,var(--pine)) 26%,var(--rule))}
+.pm .hi,.pq .hi,.pg .hi{color:var(--acc)}
+.hero-strip .hs:nth-child(2) .hi{color:var(--qa);background:color-mix(in srgb,var(--qa) 11%,var(--card));border-color:color-mix(in srgb,var(--qa) 26%,var(--rule))}
+.hero-strip .hs:nth-child(3) .hi{color:var(--grw);background:color-mix(in srgb,var(--grw) 12%,var(--card));border-color:color-mix(in srgb,var(--grw) 28%,var(--rule))}
+.hero-strip .hs:first-child .hi{color:var(--mkt);background:color-mix(in srgb,var(--mkt) 11%,var(--card));border-color:color-mix(in srgb,var(--mkt) 26%,var(--rule))}
+.pm .hero-strip .hs .hi,.pq .hero-strip .hs .hi,.pg .hero-strip .hs .hi{color:var(--acc);background:color-mix(in srgb,var(--acc) 11%,var(--card));border-color:color-mix(in srgb,var(--acc) 28%,var(--rule))}
+
+/* ---------- section rhythm and backgrounds ---------- */
+.vsec-alt{background:linear-gradient(180deg,color-mix(in srgb,var(--raise) 70%,var(--paper)),var(--paper) 90%)}
+.vsec-dots{background-image:radial-gradient(color-mix(in srgb,var(--ink) 11%,transparent) 1px,transparent 1.4px);background-size:24px 24px}
+.head .folio{color:var(--pine-ink)}
+.pm .head .folio{color:var(--mkt)}.pq .head .folio{color:var(--qa)}.pg .head .folio{color:var(--grw)}
+
+/* ---------- home: service cards with illustrations ---------- */
+.triad{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.triad .trow{display:flex;flex-direction:column;align-items:stretch;gap:0;padding:0;overflow:hidden;background:var(--card);border:1px solid var(--rule);border-radius:18px;box-shadow:var(--shadow);transition:transform .2s ease,border-color .2s}
+.triad .trow:first-child{border-top:1px solid var(--rule)}
+.triad .trow:hover{padding:0;transform:translateY(-4px);border-color:color-mix(in srgb,var(--pine) 40%,var(--rule))}
+.svc-art{display:grid;place-items:center;border-bottom:1px solid var(--rule)}
+.svc-art .vsvg{max-width:360px}
+.svc-art.m{background:color-mix(in srgb,var(--mkt) 12%,var(--card))}
+.svc-art.q{background:color-mix(in srgb,var(--qa) 12%,var(--card))}
+.svc-art.g{background:color-mix(in srgb,var(--grw) 13%,var(--card))}
+.triad .trow .icchip{align-self:flex-start;margin:-24px 0 0 24px;background:var(--card);position:relative;z-index:1;border-width:1px;box-shadow:0 4px 12px -6px var(--vshadow)}
+.triad .trow>div:not(.svc-art){padding:14px 24px 0}
+.triad .trow h3{font-size:1.4rem}
+.triad .trow .arrow-link{margin:auto 24px 24px;padding-top:18px;align-self:flex-start}
+
+/* ---------- "why" list: tinted icon chips ---------- */
+.why .prow,.plist-cards .prow{align-items:start}
+.prow .pk{width:44px;height:44px;border-radius:12px;border:1px solid var(--rule);background:var(--raise);padding-top:0}
+.why{position:relative}
+.why-art{margin:30px 0 0 22px;max-width:300px}
+.vsvg .vn{stroke-width:1.5}
+.vsvg .vn-m{fill:color-mix(in srgb,var(--mkt) 16%,transparent);stroke:var(--mkt)}
+.vsvg .vn-q{fill:color-mix(in srgb,var(--qa) 16%,transparent);stroke:var(--qa)}
+.vsvg .vn-g{fill:color-mix(in srgb,var(--grw) 16%,transparent);stroke:var(--grw)}
+.why-quote{position:relative;padding-left:22px;border-left:3px solid var(--pine)}
+
+/* ---------- process strip with step icons ---------- */
+.flow{position:relative}
+.flow .fstep{position:relative}
+.flow .fi{width:56px;height:56px;border-radius:50%;display:grid;place-items:center;font-size:1.5rem;color:var(--pine-ink);background:var(--card);border:1.5px solid color-mix(in srgb,var(--acc,var(--pine)) 45%,var(--rule));box-shadow:0 8px 18px -10px var(--vshadow);position:relative;z-index:1}
+.pm .flow .fi,.pq .flow .fi,.pg .flow .fi{color:var(--acc)}
+.flow .fn{position:absolute;top:-6px;left:40px;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-family:"Instrument Sans",sans-serif;font-size:.78rem;font-weight:600;line-height:1;color:var(--on-acc);background:var(--acc,var(--pine));border:2px solid var(--paper);z-index:2}
+.flow .fr{position:absolute;top:28px;left:68px;right:-22px;height:0;background:none;margin:0;border-top:2px dashed color-mix(in srgb,var(--acc,var(--pine)) 40%,var(--rule))}
+.flow .fstep:last-child .fr{display:none}
+.flow .fstep h4{margin-top:20px}
+
+/* ---------- service pages: hero with illustration ---------- */
+.phero .phero-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:48px;align-items:center}
+.phero-art{margin:0;min-width:0}
+.phero-art figcaption,.dia-art figcaption{font-size:.72rem;color:var(--soft);text-align:center;margin-top:.4rem;letter-spacing:.02em}
+.phero{position:relative;overflow:hidden}
+.phero::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(color-mix(in srgb,var(--ink) 15%,transparent) 1px,transparent 1.4px);background-size:22px 22px;-webkit-mask-image:radial-gradient(ellipse 55% 80% at 90% 25%,#000 0,transparent 72%);mask-image:radial-gradient(ellipse 55% 80% at 90% 25%,#000 0,transparent 72%)}
+.phero::after{content:"";position:absolute;width:520px;height:520px;right:-170px;top:-190px;border-radius:50%;pointer-events:none;background:radial-gradient(closest-side,color-mix(in srgb,var(--acc,var(--pine)) 16%,transparent),transparent)}
+.phero .wrap{position:relative;z-index:1}
+.phero .hero-strip{margin-top:44px}
+.phero .hs{padding:24px 22px;gap:14px}
+.phero .hs .n{font-size:1.7rem;line-height:1.2}
+.phero h1{font-size:clamp(2.2rem,4.6vw,3.5rem)}
+
+/* feature cards (service grid) */
+.scard{box-shadow:inset 0 3px 0 var(--acc,var(--pine));transition:transform .2s ease,box-shadow .2s ease,border-color .2s}
+.scard:hover{transform:translateY(-3px);box-shadow:inset 0 3px 0 var(--acc,var(--pine)),var(--shadow)}
+.scard .icchip{width:50px;height:50px;font-size:1.4rem;color:var(--acc);background:color-mix(in srgb,var(--acc,var(--pine)) 11%,var(--card));border-color:color-mix(in srgb,var(--acc,var(--pine)) 28%,var(--rule))}
+.scard .chip{background:color-mix(in srgb,var(--acc,var(--pine)) 8%,var(--raise))}
+
+/* approach diagram */
+.diagram{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:44px;align-items:center}
+.dia-art{margin:0;min-width:0;max-width:420px;width:100%;justify-self:center}
+.dlist{list-style:none;display:flex;flex-direction:column;gap:0;counter-reset:none}
+.dlist li{display:grid;grid-template-columns:48px 1fr;gap:18px;padding:20px 0;border-bottom:1px solid var(--rule)}
+.dlist li:first-child{border-top:1px solid var(--rule)}
+.dlist .dn{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;font-size:1.35rem;color:var(--on-acc);background:var(--acc,var(--pine))}
+.dlist h4{font-size:1.08rem;margin-bottom:.25rem}
+.dlist p{font-size:.92rem}
+.dlist .dtag{display:inline-block;margin-top:.5rem;font-size:.72rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--acc,var(--pine-ink))}
+
+/* stat band: icons and pattern */
+.band{position:relative;overflow:hidden}
+.band::before{content:"";position:absolute;width:420px;height:420px;border-radius:50%;right:-120px;top:-210px;border:60px solid color-mix(in srgb,var(--paper) 7%,transparent);pointer-events:none}
+:root[data-theme="dark"] .band::before{border-color:color-mix(in srgb,#0E1A15 8%,transparent)}
+.band>*{position:relative}
+.band-stats>div{display:flex;flex-direction:column;gap:.1rem}
+.band-stats .bi{font-size:1.3rem;margin-bottom:.4rem;opacity:.9}
+
+/* "why us" cards on service pages */
+.plist-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.plist-cards .prow,.plist-cards .prow:first-child{background:var(--card);border:1px solid var(--rule);border-radius:16px;padding:22px;grid-template-columns:44px 1fr;transition:transform .2s ease,box-shadow .2s ease}
+.plist-cards .prow:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.plist-cards .prow .pk{color:var(--acc);background:color-mix(in srgb,var(--acc,var(--pine)) 11%,var(--card));border-color:color-mix(in srgb,var(--acc,var(--pine)) 28%,var(--rule))}
+
+/* ---------- visual CTA block ---------- */
+.cta-sec{padding:20px 0 84px;border-top:none}
+.cta-band{position:relative;overflow:hidden;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:36px;align-items:center;padding:44px;border-radius:22px;border:1px solid color-mix(in srgb,var(--acc,var(--pine)) 30%,var(--rule));background:linear-gradient(135deg,color-mix(in srgb,var(--acc,var(--pine)) 11%,var(--card)),var(--card) 70%);box-shadow:var(--shadow)}
+.cta-band h2{font-size:clamp(1.6rem,3vw,2.3rem);margin:.9rem 0 .7rem}
+.cta-band p{max-width:46ch}
+.cta-band .hero-cta{margin-top:1.6rem}
+.cta-art{margin:0;min-width:0;max-width:340px;width:100%;justify-self:center}
+.cta-band .folio{color:var(--acc,var(--pine-ink))}
+
+/* ---------- home contact block ---------- */
+#contact{background:linear-gradient(180deg,var(--paper),color-mix(in srgb,var(--raise) 70%,var(--paper)))}
+.contact-art{margin:0 0 20px;border-radius:18px;overflow:hidden;border:1px solid var(--rule);background:color-mix(in srgb,var(--pine) 10%,var(--card))}
+.contact-art .vsvg{max-width:420px;margin:0 auto}
+.contact-art figcaption{padding:0 18px 14px;font-size:.78rem;color:var(--soft);text-align:center}
+.cline>.ci0{background:color-mix(in srgb,var(--pine) 10%,var(--card));border-color:color-mix(in srgb,var(--pine) 26%,var(--rule))}
+
+/* ---------- responsive ---------- */
+@media (max-width:960px){
+  .hero{padding:44px 0 48px}
+  .hero .hero-top{grid-template-columns:minmax(0,1fr);gap:0}
+  .hero-art{max-width:520px;margin:36px auto 0;width:100%}
+  .triad{grid-template-columns:minmax(0,1fr);gap:18px}
+  .triad .trow{display:flex}
+  .triad .trow .arrow-link{grid-column:auto}
+  .phero .phero-grid{grid-template-columns:minmax(0,1fr);gap:28px}
+  .phero-art{max-width:520px;width:100%;margin:0 auto}
+  .diagram{grid-template-columns:minmax(0,1fr);gap:28px}
+  .cta-band{grid-template-columns:minmax(0,1fr);padding:32px;gap:24px}
+  .cta-art{max-width:280px}
+  .plist-cards{grid-template-columns:minmax(0,1fr)}
+  .flow .fr{display:none}
+  .flow .fstep:last-child .fr{display:none}
+  .flow{row-gap:34px}
+}
+@media (min-width:601px) and (max-width:960px){
+  .hero-strip{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .hero-strip .hs{flex-direction:column;align-items:flex-start;gap:12px;padding:20px 18px;border-right:1px solid var(--rule);border-bottom:none}
+  .hero-strip .hs:last-child{border-right:none}
+  .phero .hs .n{font-size:1.45rem}
+}
+@media (max-width:600px){
+  .hero-strip .hs{padding:18px 20px}
+  .flow{grid-template-columns:minmax(0,1fr);row-gap:26px}
+  .flow .fstep{display:grid;grid-template-columns:56px 1fr;column-gap:16px;align-items:start}
+  .flow .fstep .fi{grid-row:1/span 2}
+  .flow .fstep h4{margin-top:4px;grid-column:2}
+  .flow .fstep p{grid-column:2}
+  .flow .fn{left:38px}
+  .flow .fstep:not(:last-child)::after{content:"";position:absolute;left:27px;top:60px;bottom:-26px;border-left:2px dashed color-mix(in srgb,var(--acc,var(--pine)) 40%,var(--rule))}
+  .cta-band{padding:26px 22px}
+  .why-quote{padding-left:16px}
+  .dlist li{grid-template-columns:44px 1fr;gap:14px}
+  .dlist .dn{width:44px;height:44px}
+}
