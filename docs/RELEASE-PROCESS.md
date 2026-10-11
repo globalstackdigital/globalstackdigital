@@ -36,3 +36,5 @@ Open a revert pull request: in GitHub, open the merged PR and press "Revert", th
 ## Legacy file removal (follow-up)
 
 After a restructure, the legacy root files listed in `docs/STRUCTURE.md` stay for a transition period. Remove them in their own small PR once the cache window has passed, and run the post-deploy checklist again. The clean repository keeps these files unchanged, so this follow-up is still pending.
+
+The Pages deployment was re-verified after the repository was rebuilt.
