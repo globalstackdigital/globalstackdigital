@@ -1,0 +1,8 @@
+# Global Stack Digital: code owners
+# All files need review from the repository owner before merging.
+
+* @globalstackdigital
+
+/assets/ @globalstackdigital
+/docs/ @globalstackdigital
+/.github/ @globalstackdigital
