@@ -29,7 +29,19 @@ Global Stack Digital is your all-in-one agency for Marketing, Quality Assurance,
 - Cookie Policy: `/cookie-policy/`
 - Security & Data Handling: `/security/`
 
-Analytics (Mixpanel) runs on every visit via `analytics.js`. The site has no cookie banner or consent UI; the Privacy Policy and Cookie Policy describe this and how visitors can limit tracking.
+Analytics (Mixpanel) runs on every visit via `assets/js/analytics.js`. The site has no cookie banner or consent UI; the Privacy Policy and Cookie Policy describe this and how visitors can limit tracking.
+
+---
+
+## Repository structure
+
+Static site (HTML, CSS, vanilla JS) on GitHub Pages. No build step.
+
+- Page folders at the root (`digital-marketing/`, `qa-intelligence/`, `growth-strategy/`, `privacy-policy/`, `terms-of-service/`, `cookie-policy/`, `security/`): each folder name is a public URL, so never rename them.
+- `assets/css/` and `assets/js/`: shared styles and scripts. `assets/image.png` and `assets/og-card.png` must not move.
+- `docs/`: structure, release process, legal pages and URL map. Start with [`docs/STRUCTURE.md`](docs/STRUCTURE.md).
+- Root `styles.css`, `legal.css`, `main.js`, `analytics.js` and `consent.js` are legacy copies kept temporarily for cached pages. Do not edit or reference them.
+- Changes go through the `release` branch and a pull request to `main` ([`docs/RELEASE-PROCESS.md`](docs/RELEASE-PROCESS.md)).
 
 ---
 
