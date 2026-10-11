@@ -25,8 +25,10 @@ Global Stack Digital is a static site (plain HTML, CSS and vanilla JS) published
   assets/
     css/styles.css                Shared design system (all pages)
     css/legal.css                 Extra prose layout, loaded only by the 4 legal pages
+    css/visuals.css               Illustrations, icon layouts and decorative backgrounds, loaded by the home page and the 3 service pages
     js/main.js                    Theme toggle, drawer, marquee, contact form, draft autosave
     js/analytics.js               Mixpanel loader (token and config live here only)
+    img/gsd-icons.svg             Icon sprite used by the visuals (referenced with <use href="...gsd-icons.svg#v-name">)
     image.png                     Logo, favicon, JSON-LD logo   (NEVER MOVE OR RENAME)
     og-card.png                   Open Graph / social card      (NEVER MOVE OR RENAME)
 
